@@ -1,0 +1,6 @@
+<svg width="240" height="180" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="파머스바이오">
+  <!-- Red pebble (left) -->
+  <path fill="#E60012" d="M52 44c26-14 62-13 66 18 3 22 6 46-4 63-9 15-33 23-58 20C28 142 14 122 14 96 14 70 30 56 52 44Z"/>
+  <!-- Navy pebble (right) -->
+  <path fill="#1B1C8C" d="M138 42c30-8 74 4 78 34 3 24-6 48-30 60-24 12-56 12-64-10-7-19-6-40-1-58 5-16 5-22 17-26Z"/>
+</svg>
