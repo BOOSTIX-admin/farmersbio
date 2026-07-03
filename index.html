@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>파머스바이오 — 대두 발효 기반 고기능성 원료 설계·제조 파트너</title>
+<meta name="description" content="파머스바이오는 대두 발효 기반으로 식품·화장품·의약용 고기능성 원료를 설계하고 직접 제조하는 B2B 파트너입니다. 20년 숙련 데이터로 양산 재현성과 공급 안정성을 보장합니다." />
+<meta property="og:title" content="파머스바이오" />
+<meta property="og:description" content="대두 발효 기반 고기능성 원료 설계·제조 파트너" />
+<meta property="og:image" content="assets/img/r-hero.jpg" />
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#FFFFFF; --parchment:#F5F2EB; --parchment-2:#ECE7DC;
+    --ink:#1C1A16; --muted:#6E6A60; --muted-2:#948F82;
+    --sage:#C7D3BE; --sage-txt:#2C3A2A;
+    --navy:#1B1C8C; --dark:#14162C; --dark-2:#1D2040;
+    --red:#E60012; --hi:#E8F07C; --line:#E4DFD3; --line-2:#EDEAE0;
+    --sans:"Pretendard","Pretendard Variable",system-ui,-apple-system,sans-serif;
+    --en:"Fraunces",Georgia,serif; --wrap:1240px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(24px,5vw,96px)}
+  .en{font-family:var(--en);font-weight:400}
+  .eyebrow{font-size:11.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--muted-2)}
+  h1,h2,h3{font-weight:800;letter-spacing:-.03em;line-height:1.24;word-break:keep-all}
+  .sec-head{max-width:760px;margin-bottom:52px}
+  .sec-head .eyebrow{display:block;margin-bottom:16px}
+  .sec-head h2{font-size:clamp(28px,3.8vw,46px);letter-spacing:-.035em}
+  .sec-head p{color:var(--muted);font-size:16.5px;margin-top:16px}
+
+  .ul{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--ink);padding-bottom:7px;border-bottom:1px solid var(--red);transition:.25s}
+  .ul:hover{color:var(--red);letter-spacing:.24em}
+  .ul.light{color:#fff;border-color:rgba(255,255,255,.55)}
+  .ul.light:hover{color:#fff;border-color:#fff}
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-weight:600;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;padding:16px 32px;border-radius:2px;background:var(--ink);color:#fff;transition:.25s;cursor:pointer;border:0}
+  .btn:hover{background:var(--red)}
+  .btn.red{background:var(--red)} .btn.red:hover{background:#c10010}
+
+  header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.35s}
+  header:not(.solid){background:linear-gradient(180deg,rgba(15,16,32,.62) 0%,rgba(15,16,32,.34) 52%,rgba(15,16,32,0) 100%)}
+  header .bar{display:flex;align-items:center;justify-content:space-between;height:74px;padding:0 40px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:18px;color:#fff;letter-spacing:-.02em}
+  .brand svg{width:34px;height:26px}
+  nav.main{display:flex;gap:26px}
+  nav.main a{font-size:13.5px;font-weight:500;color:#fff;opacity:.9;position:relative;padding:4px 0}
+  nav.main a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--red);transition:.25s}
+  nav.main a:hover::after{width:100%}
+  .header-cta{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:10px 18px;border:1px solid rgba(255,255,255,.4);border-radius:2px;color:#fff;transition:.25s}
+  .header-cta:hover{background:#fff;color:var(--dark)}
+  header.solid{background:rgba(255,255,255,.94);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+  header.solid .brand,header.solid nav.main a,header.solid .navtoggle{color:var(--ink)}
+  header.solid .header-cta{border-color:var(--ink);color:var(--ink)}
+  header.solid .header-cta:hover{background:var(--ink);color:#fff}
+  .navtoggle{display:none;background:none;border:0;font-size:23px;color:#fff;cursor:pointer}
+  header:not(.solid) .brand,header:not(.solid) nav.main a,header:not(.solid) .header-cta,header:not(.solid) .navtoggle{text-shadow:0 1px 14px rgba(0,0,0,.5)}
+  header:not(.solid) .header-cta{border-color:rgba(255,255,255,.6)}
+
+  .hero{position:relative;min-height:100vh;color:#fff;overflow:hidden}
+  .hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.45) 28%,rgba(0,0,0,.12) 58%,rgba(0,0,0,0) 78%)}
+  .hero .inner{position:absolute;top:29%;left:0;max-width:700px;margin:0;padding:0 24px 0 clamp(32px,5vw,80px);text-shadow:none}
+  .hero .eyebrow{display:block;color:rgba(255,255,255,.8);opacity:1;font-size:13px;letter-spacing:.12em;font-weight:600;text-transform:none;margin-bottom:20px;text-shadow:none}
+  .hero h1{font-size:clamp(42px,3.1vw,62px);line-height:1.15;letter-spacing:-.04em;font-weight:800;max-width:660px;white-space:nowrap;text-shadow:0 2px 12px rgba(0,0,0,.2)}
+  .hero p.lead{margin:30px 0 0;font-size:16px;line-height:1.7;max-width:540px;color:rgba(255,255,255,.86);font-weight:400;text-shadow:none}
+  .hero .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:30px}
+  .hero .hbtn{display:inline-flex;align-items:center;justify-content:center;gap:.45em;height:54px;padding:0 28px;border-radius:3px;font-size:14px;font-weight:600;letter-spacing:.01em;transition:.22s;cursor:pointer;border:1px solid transparent}
+  .hero .hbtn.red{background:var(--red);color:#fff;border-color:var(--red)}
+  .hero .hbtn.red:hover{background:#c10010;transform:translateY(-2px)}
+  .hero .hbtn.line{background:rgba(0,0,0,.18);color:#fff;border-color:rgba(255,255,255,.55)}
+  .hero .hbtn.line:hover{background:#fff;color:var(--ink);border-color:#fff}
+  .hero .trust{margin-top:22px;font-size:12.5px;font-weight:500;letter-spacing:.03em;color:rgba(255,255,255,.8);text-shadow:none}
+  .hero .trust i{font-style:normal;padding:0 14px;color:rgba(255,255,255,.38)}
+  .scrollhint{position:absolute;right:40px;bottom:38px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;writing-mode:vertical-rl;opacity:.7}
+  @media(max-width:768px){
+    .hero{min-height:720px;min-height:100svh}
+    .hero::after{background:linear-gradient(0deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.42) 45%,rgba(0,0,0,.05) 78%)}
+    .hero .inner{top:auto;bottom:9%;left:0;right:0;max-width:none;padding:0 24px}
+    .hero h1{font-size:clamp(36px,9vw,42px);max-width:none;white-space:normal}
+    .hero p.lead{font-size:14.5px;max-width:none}
+    .hero .row{flex-direction:column;align-items:stretch;gap:10px}
+    .hero .hbtn{width:100%;height:52px}
+    .hero .trust{font-size:12px}
+    .scrollhint{display:none}
+  }
+
+  /* clients marquee */
+  .clients{background:var(--paper);border-bottom:1px solid var(--line);padding:30px 0;overflow:hidden}
+  .clients .lab{text-align:center;margin-bottom:22px}
+  .clients .lab b{display:block;font-size:16px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+  .clients .lab span{display:block;font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted-2);margin-top:5px}
+  .clients .mask{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+  .clients .track{display:flex;width:max-content;align-items:center;animation:marq 40s linear infinite}
+  .clients:hover .track{animation-play-state:paused}
+  .clients .item{height:27px;width:auto;margin-right:58px;opacity:.62;transition:.22s;flex:0 0 auto}
+  .clients .item:hover{opacity:1}
+  .clients .item:hover{opacity:1;color:var(--ink)}
+  @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+  /* PROOF band */
+  .proof{background:var(--dark);color:#fff}
+  .proof .g{display:grid;grid-template-columns:repeat(4,1fr)}
+  .proof .p{padding:46px 34px;border-left:1px solid rgba(255,255,255,.12)}
+  .proof .p:first-child{border-left:0}
+  .proof .p .n{font-family:var(--en);font-size:34px;font-weight:400;line-height:1;color:#fff}
+  .proof .p .n i{font-style:normal;font-size:.5em;color:#ff5a66;vertical-align:super;margin-left:2px}
+  .proof .p .t{font-size:15px;font-weight:700;margin:14px 0 6px}
+  .proof .p .d{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+
+  /* PROBLEMS */
+  .problems{background:var(--parchment);padding:130px 0}
+  .prob-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;margin-top:12px}
+  .prob{background:var(--paper);border:1px solid var(--line-2);border-top:2px solid var(--red);border-radius:6px;padding:32px 28px;display:flex;flex-direction:column}
+  .prob .no{font-family:var(--en);font-size:24px;color:var(--red);margin-bottom:18px}
+  .prob h3{font-size:18px;font-weight:700;margin-bottom:16px;letter-spacing:-.02em}
+  .prob p{font-size:14.5px;color:var(--muted);line-height:1.65}
+  .prob-sol{margin-top:36px;padding:36px 34px;background:var(--dark);color:#fff;border-radius:6px;display:flex;gap:20px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+  .prob-sol p{font-size:16px;font-weight:500;max-width:760px}
+  .prob-sol p b{color:#ff8189;font-weight:700}
+
+  /* feature alt */
+  .feature{display:grid;grid-template-columns:48fr 52fr;align-items:stretch;min-height:70vh;padding:clamp(64px,8vw,104px) 0;background:var(--parchment)}
+  .feature .pic{position:relative;overflow:hidden;min-height:52vh}
+  .feature .pic img,.feature .pic video{width:100%;height:100%;object-fit:cover;transition:1s ease;display:block}
+  .feature:hover .pic img,.feature:hover .pic video{transform:scale(1.04)}
+  .feature .txt{display:flex;flex-direction:column;justify-content:center;padding:84px clamp(40px,6vw,120px)}
+  .feature.rev .pic{order:2}
+  .feature .eyebrow{margin-bottom:22px}
+  .feature h2{font-size:clamp(28px,3.4vw,46px);font-weight:800;letter-spacing:-.035em;line-height:1.25;margin-bottom:18px}
+  .feature .ftdesc{color:var(--muted);font-size:15.5px;line-height:1.7;max-width:460px;margin-bottom:30px}
+  .feature h2 .em{color:var(--red)}
+  .feature .body{color:var(--muted);font-size:15.5px;line-height:1.8;max-width:470px}
+  .feature.cream .txt{background:var(--parchment)}
+
+  /* TECH list */
+  .techlist{margin-top:8px}
+  .techlist .it{display:grid;grid-template-columns:60px 200px 1fr;gap:24px;align-items:center;min-height:78px;padding:14px 0;border-top:1px solid var(--line)}
+  .techlist .it:last-child{border-bottom:1px solid var(--line)}
+  .techlist .it .k{font-family:var(--en);font-size:18px;color:var(--red)}
+  .techlist .it h3{font-size:19px;font-weight:700;letter-spacing:-.02em}
+  .techlist .it p{color:var(--muted);font-size:15px;line-height:1.7}
+
+  /* PROCESS */
+  .process{background:var(--dark);color:#fff;padding:120px 0 140px;position:relative;overflow:hidden}
+  .process .wrap{position:relative;z-index:3}
+  .process .sec-head h2{color:#fff}
+  .process .sec-head .eyebrow{color:rgba(255,255,255,.55)}
+  .process .sec-head p{color:rgba(255,255,255,.6)}
+  .proc-bg{position:absolute;top:56px;right:2%;width:min(660px,50%);opacity:.13;z-index:1;pointer-events:none}
+  .proc-bg svg{width:100%;height:auto;display:block;stroke:#fff;fill:none;stroke-width:1.1;stroke-linejoin:round;stroke-linecap:round}
+  .proc-side{position:absolute;top:64px;right:40px;z-index:3;font-family:var(--en);font-style:italic;font-size:15px;line-height:1.5;text-align:right;color:rgba(255,255,255,.5)}
+  .proc-side::after{content:"";display:block;width:38px;height:1px;background:var(--red);margin:10px 0 0 auto}
+  .proc-track{position:relative;z-index:2;display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:76px}
+  .proc-track::before{content:"";position:absolute;top:38px;left:8.33%;right:8.33%;height:1px;background:rgba(255,255,255,.16);z-index:0}
+  .pstep{position:relative;text-align:center;padding:0 12px;z-index:1}
+  .pstep .badge{position:relative;width:76px;height:76px;margin:0 auto 24px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center}
+  .pstep .badge svg{width:38px;height:38px;stroke:#fff;stroke-width:1.5;fill:none;stroke-linejoin:round;stroke-linecap:round}
+  .pstep .badge .num{position:absolute;top:-6px;right:-6px;width:26px;height:26px;border-radius:50%;background:var(--red);color:#fff;font-family:var(--en);font-size:13px;font-weight:500;display:flex;align-items:center;justify-content:center}
+  .pstep h3{font-size:16.5px;font-weight:700;letter-spacing:-.02em;margin-bottom:9px}
+  .pstep p{font-size:13px;color:rgba(255,255,255,.62);line-height:1.6;max-width:172px;margin:0 auto}
+  .pstep:not(:last-child)::after{content:"";position:absolute;top:31px;right:-7px;width:13px;height:13px;border-top:2px solid var(--red);border-right:2px solid var(--red);transform:rotate(45deg);z-index:2}
+  .pstep.hot .badge{background:var(--red);border-color:var(--red)}
+  .pstep.hot .badge svg{stroke:#fff}
+  .pstep.hot .badge .num{background:#fff;color:var(--red)}
+  .pstep.hot h3{color:#fff}
+  @media(max-width:900px){
+    .proc-side{position:static;text-align:left;margin:16px 0 0}
+    .proc-side::after{margin:10px 0 0 0}
+    .proc-bg{display:none}
+    .proc-track{grid-template-columns:1fr 1fr;gap:36px 12px;margin-top:36px}
+    .proc-track::before{display:none}
+    .pstep:not(:last-child)::after{display:none}
+    .pstep p{max-width:none}
+  }
+
+  /* PRODUCTS showcase + trio */
+  .showcase{background:var(--parchment);padding:0;position:relative}
+  .showcase .stage{position:relative;max-width:none;margin:0;padding:0}
+  .showcase .imgs{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .showcase .imgs .im{height:min(90vh,880px);overflow:hidden}
+  .showcase .imgs .im img{width:100%;height:100%;object-fit:cover}
+  .fcard{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(460px,40%);background:var(--sage);color:var(--sage-txt);padding:64px 56px;text-align:center;z-index:3}
+  .fcard .k{font-size:11px;letter-spacing:.22em;text-transform:uppercase;opacity:.7;margin-bottom:18px;font-weight:600}
+  .fcard h3{font-family:var(--en);font-size:clamp(30px,3vw,42px);font-weight:400;letter-spacing:0;margin-bottom:18px;line-height:1.12}
+  .fcard p{font-size:14.5px;line-height:1.75;margin:0 auto 26px;color:#39463A;max-width:320px}
+  .fcard .ul{color:var(--sage-txt);border-color:var(--sage-txt)}
+  .trio-head{text-align:center;padding:96px 40px 46px}
+  .trio-head .eyebrow{display:block;margin-bottom:12px}
+  .trio-head h2{font-size:clamp(28px,4vw,52px);letter-spacing:-.04em}
+  .trio{display:grid;grid-template-columns:repeat(3,1fr)}
+  .tcell{position:relative;height:78vh;min-height:560px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;color:#fff;padding:52px 28px}
+  .tcell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:1.1s ease}
+  .tcell:hover img{transform:scale(1.05)}
+  .tcell::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(10,11,22,.5),rgba(10,11,22,.1) 34%,rgba(10,11,22,.15) 60%,rgba(10,11,22,.6))}
+  .tcell .k{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;opacity:.85;margin-bottom:10px;font-weight:600}
+  .tcell h3{font-family:var(--en);font-size:clamp(24px,2.2vw,32px);font-weight:400;line-height:1.15}
+  .tcell .kr{margin-top:8px;font-size:14px;font-weight:500;opacity:.92}
+  .plines{padding:64px 0 110px;background:var(--parchment)}
+  .plines .in{max-width:var(--wrap);margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+  .plines .pl{padding-top:22px;border-top:1px solid var(--line)}
+  .plines .pl b{display:block;font-size:15.5px;font-weight:700;margin-bottom:5px}
+  .plines .pl span{font-size:13.5px;color:var(--muted)}
+
+  /* FACILITY */
+  .facility{padding:120px 0}
+  .facility .two{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:center}
+  .facility .imgs{display:grid;grid-template-columns:1fr;gap:14px}
+  .facility .imgs img{width:100%;height:100%;object-fit:cover;border-radius:8px;aspect-ratio:3/4}
+  .facility .imgs video{width:100%;height:auto;object-fit:cover;border-radius:8px;aspect-ratio:3/2;display:block}
+  .facility h2{font-size:clamp(26px,3.2vw,42px);letter-spacing:-.035em;margin:16px 0 20px}
+  .facility .body{color:var(--muted);font-size:15.5px;line-height:1.8;margin-bottom:24px}
+  .caps{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .cap{border:1px solid var(--line);border-radius:8px;padding:16px 18px}
+  .cap b{display:block;font-size:14.5px;font-weight:700;margin-bottom:3px}
+  .cap span{font-size:12.5px;color:var(--muted)}
+
+  /* PARTNERS cobrand */
+  .cobrand{background:var(--dark);color:#fff;padding:120px 0}
+  .cobrand .two{display:grid;grid-template-columns:1fr 1.1fr;gap:70px;align-items:center}
+  .cobrand .eyebrow{color:rgba(255,255,255,.55);margin-bottom:22px}
+  .cobrand h2{font-size:clamp(28px,3.4vw,46px);letter-spacing:-.035em;line-height:1.28}
+  .cobrand h2 .em{color:var(--red)}
+  .cobrand p{color:rgba(255,255,255,.68);font-size:15.5px;margin:20px 0 30px;max-width:420px}
+  .plogos{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.14)}
+  .plogo{background:var(--dark);padding:26px 24px;min-height:116px;display:flex;flex-direction:column;justify-content:center;transition:.3s}
+  .plogo:hover{background:var(--dark-2)}
+  .plogo .cat{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:10px;font-weight:600}
+  .plogo .nm{font-size:15.5px;font-weight:600;line-height:1.5}
+  .plogo .nm span{color:rgba(255,255,255,.6);font-weight:400;font-size:13.5px}
+
+  /* CERT + techdata */
+  .cert{padding:118px 0}
+  .cert .two{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+  .cert h2{font-size:clamp(24px,2.8vw,38px);letter-spacing:-.03em;margin:14px 0 24px}
+  .certlist{display:flex;flex-wrap:wrap;gap:10px}
+  .tagpill{border:1px solid var(--line);border-radius:100px;padding:9px 18px;font-size:13.5px;font-weight:600}
+  .tagpill em{font-style:normal;color:var(--muted-2);font-weight:500;margin-left:4px}
+  .awrow{padding:14px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+  .awrow b{color:var(--ink);font-weight:700}
+  .dl{display:flex;flex-direction:column;gap:12px;margin-top:4px}
+  .dlrow{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border:1px solid var(--line);border-radius:8px;transition:.2s;cursor:pointer}
+  .dlrow:hover{border-color:var(--ink);background:var(--parchment)}
+  .dlrow b{font-size:15px;font-weight:700}
+  .dlrow span{font-size:12.5px;color:var(--muted-2);letter-spacing:.1em;text-transform:uppercase}
+
+  /* CONTACT FORM */
+  .contact{background:var(--parchment-2);padding:120px 0}
+  .contact .two{display:grid;grid-template-columns:.85fr 1.15fr;gap:64px}
+  .contact h2{font-size:clamp(28px,3.6vw,46px);letter-spacing:-.035em}
+  .contact .sub{color:var(--muted);font-size:16px;margin:18px 0 30px;max-width:340px}
+  .cinfo .r{display:flex;gap:16px;padding:15px 0;border-top:1px solid var(--line)}
+  .cinfo .r .k{width:74px;flex:0 0 auto;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);padding-top:3px}
+  .cinfo .r .v{font-size:15px;font-weight:500}
+  form.cf{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:34px}
+  form.cf .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  form.cf label{display:block;font-size:12px;font-weight:600;letter-spacing:.04em;color:var(--muted);margin-bottom:7px}
+  form.cf .f{margin-bottom:16px}
+  form.cf input,form.cf select,form.cf textarea{width:100%;font-family:var(--sans);font-size:14.5px;color:var(--ink);background:var(--parchment);border:1px solid var(--line);border-radius:6px;padding:12px 14px;outline:0;transition:.2s}
+  form.cf input:focus,form.cf select:focus,form.cf textarea:focus{border-color:var(--ink);background:#fff}
+  form.cf textarea{min-height:110px;resize:vertical}
+  form.cf .full{grid-column:1/3}
+  form.cf .btn{width:100%;justify-content:center;margin-top:6px}
+  form.cf .priv{font-size:12px;color:var(--muted-2);margin-top:12px;text-align:center}
+
+  footer{background:var(--dark-2);color:#fff;padding:70px 0 40px}
+  .fgrid{display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.14)}
+  footer .brand{margin-bottom:16px;justify-self:start;justify-content:flex-start;width:max-content}
+  footer .fabout{font-size:14px;color:rgba(255,255,255,.6);max-width:300px;font-weight:400}
+  .fcol h4{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px}
+  .fcol a,.fcol p{display:block;font-size:14px;color:rgba(255,255,255,.82);margin-bottom:10px;font-weight:400;transition:.2s}
+  .fcol a:hover{color:#ff9aa2}
+  .fbot{display:flex;justify-content:space-between;padding-top:24px;font-size:12.5px;color:rgba(255,255,255,.45);flex-wrap:wrap;gap:10px}
+
+  .rv{opacity:0;transform:translateY(24px);transition:.9s cubic-bezier(.22,.61,.36,1)}
+  .rv.in{opacity:1;transform:none}
+  .mnav{position:fixed;inset:0;background:var(--dark);z-index:99;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:20px;transform:translateY(-100%);transition:.4s;opacity:0}
+  .mnav.open{transform:none;opacity:1}
+  .mnav a{color:#fff;font-size:20px;font-weight:700}
+
+  @media(max-width:960px){
+    nav.main,.header-cta{display:none}
+    .navtoggle{display:block}
+    .brand{grid-column:2;justify-self:center}
+    .hright{grid-column:3;justify-self:end}
+    .proof .g,.prob-grid,.feature,.steps,.trio,.plines .in,.facility .two,.cobrand .two,.plogos,.cert .two,.contact .two,.fgrid{grid-template-columns:1fr}
+    .prob-grid{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr 1fr}
+    .proof .g{grid-template-columns:1fr 1fr}
+    .proof .p{border-left:0;border-top:1px solid rgba(255,255,255,.12)}
+    .feature .pic{min-height:64vw}.feature.rev .pic{order:0}.feature .txt{padding:56px 28px}
+    .techlist .it{grid-template-columns:1fr;gap:6px}
+    .showcase .imgs{grid-template-columns:1fr}
+    .showcase .imgs .im{height:auto;aspect-ratio:4/3}
+    .fcard{position:relative;top:auto;left:auto;transform:none;width:92%;max-width:400px;margin:-56px auto 0;z-index:2}
+    .tcell{height:74vw;min-height:400px}
+    .facility .imgs img{aspect-ratio:1}
+    form.cf .grid{grid-template-columns:1fr}form.cf .full{grid-column:1}
+    .wrap{padding:0 22px}header .bar{padding:0 clamp(20px,2.8vw,56px)}
+    header .bar nav.main{margin-left:0}
+    .problems,.process,.facility,.cobrand,.cert,.contact{padding:76px 0}
+  }
+
+  /* INSTAGRAM (홈) */
+  .insta{background:var(--parchment);padding:96px 0 88px}
+  .insta .ihead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+  .insta .ihead .eyebrow{display:block;margin-bottom:10px}
+  .insta .ihead h2{font-size:clamp(24px,3vw,38px);letter-spacing:-.03em}
+  .insta .igrid{display:grid;grid-template-columns:repeat(6,1fr);gap:0}
+  .insta .icell{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--parchment-2);display:block}
+  .insta .icell img{width:100%;height:100%;object-fit:cover;transition:.55s cubic-bezier(.22,.61,.36,1)}
+  .insta .icell:hover img{transform:scale(1.06)}
+  .insta .icell::after{content:"";position:absolute;inset:0;background:rgba(20,22,44,0);transition:.3s}
+  .insta .icell:hover::after{background:rgba(20,22,44,.14)}
+  .insta .imore{text-align:center;margin-top:36px}
+  @media(max-width:960px){.insta .igrid{grid-template-columns:repeat(3,1fr)}.proof .g{grid-template-columns:1fr 1fr}.proof .p:nth-child(3){border-left:0;padding-left:0}}
+  @media(max-width:560px){.insta .igrid{grid-template-columns:repeat(2,1fr)}}
+
+  /* dropdown nav (홈 - 하위페이지 연결) */
+  nav.main .mi{position:relative}
+  nav.main .mi>a{display:inline-flex;align-items:center;gap:6px;padding:26px 0}
+  nav.main .mi>a .car{font-size:7px;opacity:.5;transition:.25s;transform:scaleY(.8)}
+  nav.main .mi:hover>a .car{transform:rotate(180deg) scaleY(.8)}
+  nav.main .mi>a::after{bottom:22px}
+  nav.main .sub{position:absolute;top:100%;left:-14px;transform:translateY(8px);opacity:0;visibility:hidden;transition:.28s;z-index:120}
+  nav.main .mi:hover .sub{opacity:1;visibility:visible;transform:translateY(0)}
+  .subin{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 20px 44px rgba(20,22,44,.16);padding:10px;min-width:216px}
+  .subin a{display:block;padding:10px 16px;font-size:13.5px;font-weight:500;color:var(--ink);border-radius:7px;white-space:nowrap;transition:.18s;opacity:1;text-shadow:none}
+  .subin a::after{display:none}
+  .subin a:hover{background:var(--parchment);color:var(--red)}
+  /* 드롭다운 링크는 헤더 상태와 무관하게 항상 어두운 글자 */
+  header nav.main .subin a{color:var(--ink);text-shadow:none;opacity:1}
+  header nav.main .subin a:hover{color:var(--red)}
+  /* mnav grouped (override simple) */
+  .mnav{justify-content:flex-start;align-items:stretch;gap:0;overflow-y:auto;padding:92px 34px 46px}
+  .mnav .mwrap{width:100%;max-width:420px;margin:0 auto;display:flex;flex-direction:column;gap:26px}
+  .mnav .mg h5{font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.42);margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.14)}
+  .mnav .mg a{display:block;color:#fff;font-size:16.5px;font-weight:600;padding:8px 0}
+  .mnav>.mwrap>.ul{align-self:flex-start;margin-top:4px}
+
+  /* header layout 복구 (하위페이지와 동일: 중앙 로고 · PNG) */
+  header .bar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:74px;padding:0 clamp(20px,2.8vw,56px)}
+  header .bar nav.main{justify-self:start;margin-left:28px}
+  .brand{display:flex;align-items:center;justify-self:center;gap:0}
+  .brand img{height:19px;width:auto;display:block;transition:.25s}
+  .brand .lb{display:none}
+  header.solid .brand .lw{display:none}
+  header.solid .brand .lb{display:block}
+  .hright{justify-self:end;display:flex;align-items:center;gap:14px}
+
+  /* clients 텍스트 마퀴 (Track Record) */
+  .clients .track{display:flex;width:max-content;align-items:center;animation:marq 40s linear infinite}
+  .clients .grp{display:flex;align-items:center;gap:74px;padding-right:74px;flex:0 0 auto}
+  .clients .item{height:36px;width:auto;max-width:138px;object-fit:contain;opacity:.72;filter:grayscale(1);transition:.25s;flex:0 0 auto}
+  .clients .item:hover{opacity:1;filter:grayscale(0)}
+  /* proof 밝은 버전 (숫자로 보는 파머스바이오) */
+  .proof{background:var(--paper);color:var(--ink);padding:88px 0 92px}
+  .proof .phead{display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:44px}
+  .proof .phead .eyebrow{display:block}
+  .proof .phead h2{font-size:clamp(22px,2.6vw,32px);letter-spacing:-.03em;margin-top:12px;color:var(--ink)}
+  .proof .phead .en-side{font-family:var(--en);font-style:italic;font-size:15px;color:var(--muted-2)}
+  .proof .g{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .proof .p{position:relative;padding:30px 34px 6px;border-left:1px solid var(--line)}
+  .proof .p:first-child{border-left:0;padding-left:0}
+  .proof .p::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:var(--line-2)}
+  .proof .p::after{content:"";position:absolute;top:0;left:0;width:44px;height:2px;background:var(--red)}
+  .proof .p .k{font-size:10.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--muted-2);margin-bottom:18px}
+  .proof .p .n{font-family:var(--en);font-size:clamp(52px,4.8vw,70px);font-weight:300;line-height:1;color:var(--ink);letter-spacing:-.02em}
+  .proof .p .n.sm{font-size:clamp(28px,2.6vw,36px);font-weight:400}
+  .proof .p .n i{font-style:normal;font-size:.34em;color:var(--red);font-weight:500;margin-left:6px;letter-spacing:0;text-transform:uppercase}
+  .proof .p .t{font-size:17.5px;font-weight:700;margin:18px 0 7px;letter-spacing:-.02em;color:var(--ink)}
+  .proof .p .d{font-size:13.5px;color:var(--muted);line-height:1.65}
+  /* 모바일: 메뉴가 헤더 위로 오도록 + 문의하기 버튼 */
+  .mnav{z-index:150}
+  .mnav .mcta{display:inline-block;margin-top:8px;color:#fff;font-size:16px;font-weight:700;letter-spacing:0;text-transform:none;border:1px solid rgba(255,255,255,.45);border-radius:3px;padding:13px 26px}
+  .mnav .mcta:active{background:rgba(255,255,255,.12)}
+
+  /* 인증서 카드 줄 */
+  .cert .certcards{display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:56px}
+  .cert .ccard{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--paper)}
+  .cert .ccard .im{aspect-ratio:3/4;background:var(--parchment-2);overflow:hidden}
+  .cert .ccard .im img{width:100%;height:100%;object-fit:cover;object-position:top}
+  .cert .ccard .cap{padding:18px 20px}
+  .cert .ccard .cap b{display:block;font-size:15px;font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+  .cert .ccard .cap span{display:block;font-size:13px;color:var(--muted-2);margin-top:6px}
+  @media(max-width:960px){.cert .certcards{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<header id="hdr">
+  <div class="bar">
+    <nav class="main">
+      <div class="mi"><a href="company.html">회사소개<span class="car">▼</span></a>
+        <div class="sub"><div class="subin"><a href="company.html">회사개요 · 연혁</a></div></div></div>
+      <div class="mi"><a href="ingredients.html">B2B<span class="car">▼</span></a>
+        <div class="sub"><div class="subin">
+          <a href="ingredients.html">원료 리스트</a>
+          <a href="oem-odm.html">OEM · ODM 진행방식</a>
+          <a href="forms.html">생산 가능 제형</a>
+          <a href="packaging.html">포장 형태</a>
+          <a href="board.html">OEM · ODM 의뢰</a>
+        </div></div></div>
+      <div class="mi"><a href="brand-welliz.html">BRAND<span class="car">▼</span></a>
+        <div class="sub"><div class="subin">
+          <a href="brand-welliz.html">오롯농장</a>
+          <a href="brand-mokhyang.html">애터미</a>
+          <a href="brand-treeonlab.html">풀무원</a>
+          <a href="brand-dufour.html">쌈보보쌈</a>
+          <a href="brand-etc.html">평화김해뒷고기</a>
+        </div></div></div>
+    </nav>
+    <a href="#top" class="brand" aria-label="파머스바이오 홈">
+      <img class="lw" src="assets/img/logo-white.png" alt="파머스바이오" />
+      <img class="lb" src="assets/img/logo-black.png" alt="파머스바이오" />
+    </a>
+    <div class="hright">
+      <a href="board.html" class="header-cta">문의하기</a>
+      <button class="navtoggle" aria-label="메뉴" onclick="document.getElementById('mnav').classList.add('open')">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mnav" id="mnav">
+  <button class="navtoggle" style="position:absolute;top:22px;right:26px;color:#fff" aria-label="닫기" onclick="closeM()">✕</button>
+  <div class="mwrap">
+    <div class="mg"><h5>회사소개</h5><a href="company.html" onclick="closeM()">회사개요 · 연혁</a></div>
+    <div class="mg"><h5>B2B</h5>
+      <a href="ingredients.html" onclick="closeM()">원료 리스트</a><a href="oem-odm.html" onclick="closeM()">OEM · ODM 진행방식</a>
+      <a href="forms.html" onclick="closeM()">생산 가능 제형</a><a href="packaging.html" onclick="closeM()">포장 형태</a>
+      <a href="board.html" onclick="closeM()">OEM · ODM 의뢰</a></div>
+    <div class="mg"><h5>Brand</h5>
+      <a href="brand-welliz.html" onclick="closeM()">오롯농장</a><a href="brand-mokhyang.html" onclick="closeM()">애터미</a>
+      <a href="brand-treeonlab.html" onclick="closeM()">풀무원</a><a href="brand-dufour.html" onclick="closeM()">쌈보보쌈</a><a href="brand-etc.html" onclick="closeM()">평화김해뒷고기</a></div>
+    <div class="mg"><h5>정책</h5><a href="privacy.html" target="_blank" rel="noopener" onclick="closeM()">개인정보처리방침</a><a href="terms.html" target="_blank" rel="noopener" onclick="closeM()">이용약관</a></div>
+    <a href="board.html" class="mcta" onclick="closeM()">문의하기</a>
+  </div>
+</div>
+
+<!-- 1. HERO -->
+<section class="hero" id="top">
+  <video class="bg" autoplay muted loop playsinline preload="auto" poster="assets/img/r-hero-poster.jpg">
+    <source src="video/hero-loop.mp4" type="video/mp4" />
+    <img class="bg" src="assets/img/r-hero.jpg" alt="대두 발효 원물" />
+  </video>
+  <div class="wrap inner">
+    <p class="eyebrow">필요한 기능과 목표 스펙을 알려주세요</p>
+    <h1>기능성 원료 개발부터<br>양산까지 연결합니다</h1>
+    <p class="lead">대두 발효 기반의 기능성 원료를 제품 목표에 맞춰 설계하고,<br>샘플 개발부터 생산·품질관리·공급까지 한 번에 지원합니다.</p>
+    <div class="row">
+      <a href="board.html" class="hbtn red">맞춤 개발 상담하기</a>
+      <a href="ingredients.html" class="hbtn line">원료·기술 보기 →</a>
+    </div>
+    <p class="trust">맞춤 설계<i>│</i>파일럿 테스트<i>│</i>직접 생산<i>│</i>품질관리</p>
+  </div>
+  <div class="scrollhint">SCROLL</div>
+</section>
+
+<!-- 거래처 마퀴 -->
+<div class="clients">
+  <p class="lab"><b>주요 파트너사</b><span>Our Partners</span></p>
+  <div class="mask">
+    <div class="track">
+      <div class="grp">
+        <img class="item" src="img/clients/cj.png" alt="CJ제일제당" loading="lazy" />
+        <img class="item" src="img/clients/pulmuone.png" alt="풀무원" loading="lazy" />
+        <img class="item" src="img/clients/babsnu.png" alt="밥스누(서울대)" loading="lazy" />
+        <img class="item" src="img/clients/atomy.png" alt="애터미" loading="lazy" />
+        <img class="item" src="img/clients/ns.png" alt="NS홈쇼핑" loading="lazy" />
+        <img class="item" src="img/clients/homenshopping.png" alt="홈앤쇼핑" loading="lazy" />
+        <img class="item" src="img/clients/coupang.png" alt="쿠팡" loading="lazy" />
+        <img class="item" src="img/clients/wemakeprice.png" alt="위메프" loading="lazy" />
+        <img class="item" src="img/clients/tmon.png" alt="티몬" loading="lazy" />
+        <img class="item" src="img/clients/hmart.png" alt="H-Mart" loading="lazy" />
+        <img class="item" src="img/clients/hannam.png" alt="한남체인" loading="lazy" />
+        <img class="item" src="img/clients/gogo.png" alt="고고불백" loading="lazy" />
+        <img class="item" src="img/clients/ssambo.png" alt="쌈보보쌈" loading="lazy" />
+        <img class="item" src="img/clients/ilkilo.png" alt="일키로삼겹의대소동" loading="lazy" />
+        <img class="item" src="img/clients/pyeonghwa.png" alt="평화김해뒷고기" loading="lazy" />
+        <img class="item" src="img/clients/pyeonghwa-plus.png" alt="평화김해뒷고기 푸짐한판" loading="lazy" />
+      </div>
+      <div class="grp" aria-hidden="true">
+        <img class="item" src="img/clients/cj.png" alt="" loading="lazy" />
+        <img class="item" src="img/clients/pulmuone.png" alt="" loading="lazy" />
+        <img class="item" src="img/clients/babsnu.png" alt="" loading="lazy" />
+        <img class="item" src="img/clients/atomy.png" alt="" loading="lazy" />
+        <img class="item" src="img/clients/ns.png" alt="" loading="lazy" />
+        <img class="item" src="img/clients/homenshopping.png" alt="" loading="lazy" />
+        <img class="item" src="img/clients/coupang.png" alt="" loading="lazy" />
+        <img class="item" src="img/clients/wemakeprice.png" alt="" loading="lazy" />
+        <img class="item" src="img/clients/tmon.png" alt="" loading="lazy" />
+        <img class="item" src="img/clients/hmart.png" alt="" loading="lazy" />
+        <img class="item" src="img/clients/hannam.png" alt="" loading="lazy" />
+        <img class="item" src="img/clients/gogo.png" alt="" loading="lazy" />
+        <img class="item" src="img/clients/ssambo.png" alt="" loading="lazy" />
+        <img class="item" src="img/clients/ilkilo.png" alt="" loading="lazy" />
+        <img class="item" src="img/clients/pyeonghwa.png" alt="" loading="lazy" />
+        <img class="item" src="img/clients/pyeonghwa-plus.png" alt="" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="proof" id="proof">
+  <div class="wrap">
+    <div class="phead">
+      <div><p class="eyebrow">Why Farmers Bio</p><h2>숫자로 보는 파머스바이오</h2></div>
+      <div class="en-side">Proven by numbers, not promises.</div>
+    </div>
+    <div class="g">
+      <div class="p"><div class="k">01</div><div class="n">20<i>Years+</i></div><div class="t">대두 발효 기술</div><div class="d">축적된 공정 데이터와 생산 노하우</div></div>
+      <div class="p"><div class="k">02</div><div class="n">3<i>Certifications</i></div><div class="t">품질·안전 인증</div><div class="d">HACCP · ISO 22000 · HALAL</div></div>
+      <div class="p"><div class="k">03</div><div class="n sm">One-stop</div><div class="t">개발부터 제조까지</div><div class="d">연구개발과 생산을 연결하는 원스톱 프로세스</div></div>
+      <div class="p"><div class="k">04</div><div class="n">2<i>Formats</i></div><div class="t">분말·액상 공급</div><div class="d">제품과 공정에 맞는 형태로 공급</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. 고객사가 겪는 문제 -->
+<section class="problems" id="problems">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">The Problem</span>
+      <h2>제품화 과정에서 마주하는<br>네 가지 문제</h2>
+      <p>실험실에서 확인한 결과가 실제 생산으로 이어지지 않으면, 개발 지연과 품질 편차는 곧 사업 리스크가 됩니다.</p>
+    </div>
+    <div class="prob-grid">
+      <div class="prob rv"><div class="no en">01</div><h3>양산 편차</h3><p>실험실에서 확인한 성능이 실제 양산 공정에서는 동일하게 재현되지 않습니다.</p></div>
+      <div class="prob rv"><div class="no en">02</div><h3>원료 규격</h3><p>제품군과 유통 기준에 맞는 원료 규격과 서류 대응이 복잡합니다.</p></div>
+      <div class="prob rv"><div class="no en">03</div><h3>공정 적용</h3><p>기존 생산라인에 맞는 투입 조건과 공정 검증이 필요합니다.</p></div>
+      <div class="prob rv"><div class="no en">04</div><h3>공급 안정성</h3><p>일정한 품질과 납기를 유지할 수 있는 안정적인 공급 체계가 필요합니다.</p></div>
+    </div>
+    <div class="prob-sol rv">
+      <p>실험실의 결과를 실제 양산으로 연결합니다. 개발 리스크부터 안정적인 공급까지 함께 관리합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 개발 프로세스 -->
+<section class="process" id="process">
+  <div class="proc-bg" aria-hidden="true">
+    <svg viewBox="0 0 660 240" preserveAspectRatio="xMaxYMin meet">
+      <path d="M40 230V96a30 16 0 0 1 60 0v134"/><path d="M40 96a30 8 0 0 0 60 0"/>
+      <path d="M126 230V72a26 14 0 0 1 52 0v158"/><path d="M126 72a26 7 0 0 0 52 0"/>
+      <path d="M206 230V118a34 18 0 0 1 68 0v112"/><path d="M206 118a34 9 0 0 0 68 0"/>
+      <path d="M70 58h330M152 58V44M240 58V44M300 44h96a22 22 0 0 1 22 22v22"/>
+      <path d="M418 116h172"/><rect x="452" y="92" width="34" height="24"/><rect x="496" y="92" width="34" height="24"/>
+      <path d="M420 158h190v34H420z"/><path d="M420 210h190"/>
+    </svg>
+  </div>
+  <div class="wrap">
+    <div class="proc-side en">From Concept<br>to Production</div>
+    <div class="sec-head rv">
+      <span class="eyebrow">Development Process</span>
+      <h2>상담부터 양산까지,<br>6단계로 연결합니다</h2>
+      <p>제품 목표를 확인하고, 샘플과 파일럿 검증을 거쳐 실제 양산과 공급까지 단계별로 진행합니다.</p>
+    </div>
+    <div class="proc-track">
+      <div class="pstep rv">
+        <div class="badge"><span class="num en">01</span><svg viewBox="0 0 48 44"><path d="M4 6h40v26H20l-9 7v-7H4z"/><path d="M12 16h24M12 23h16"/></svg></div>
+        <h3>상담</h3><p>제품 콘셉트와 필요한 기능을 확인합니다.</p></div>
+      <div class="pstep rv">
+        <div class="badge"><span class="num en">02</span><svg viewBox="0 0 48 44"><path d="M10 4h20l8 8v28H10z"/><path d="M30 4v8h8"/><path d="M15 21h9M15 27h11"/><circle cx="31" cy="25" r="5"/><path d="M31 18v3M31 29v3M24 25h3M35 25h3"/></svg></div>
+        <h3>목표 규격</h3><p>제형·함량·원가·인증 조건을 구체화합니다.</p></div>
+      <div class="pstep rv">
+        <div class="badge"><span class="num en">03</span><svg viewBox="0 0 48 44"><path d="M18 5h12M21 5v13l-9 17a3 3 0 0 0 3 4h20a3 3 0 0 0 3-4l-9-17V5"/><path d="M16 30h18"/></svg></div>
+        <h3>샘플 개발</h3><p>후보 원료와 테스트용 샘플을 제안합니다.</p></div>
+      <div class="pstep rv">
+        <div class="badge"><span class="num en">04</span><svg viewBox="0 0 48 44"><path d="M15 14a7 3 0 0 1 14 0v20a7 3 0 0 1-14 0z"/><path d="M22 8v3M15 22h14"/><path d="M33 18h7v18"/></svg></div>
+        <h3>파일럿 검증</h3><p>생산 공정 적합성과 양산 재현성을 검토합니다.</p></div>
+      <div class="pstep rv">
+        <div class="badge"><span class="num en">05</span><svg viewBox="0 0 48 44"><path d="M12 8h24v32H12z"/><path d="M19 8V5h10v3"/><path d="M18 24l5 5 9-11"/></svg></div>
+        <h3>품질 검증</h3><p>규격·안정성·관련 서류를 최종 확인합니다.</p></div>
+      <div class="pstep hot rv">
+        <div class="badge"><span class="num en">06</span><svg viewBox="0 0 48 44"><path d="M12 16l12-6 12 6-12 6z"/><path d="M12 16v13l12 6 12-6V16M24 22v13"/><path d="M6 40h36"/></svg></div>
+        <h3>양산·공급</h3><p>확정된 스펙으로 생산하고 안정적으로 공급합니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. 핵심 기술과 설비 -->
+<section class="feature cream" id="tech">
+  <div class="pic"><video autoplay muted loop playsinline preload="metadata" poster="assets/img/r-lab.jpg"><source src="video/strain-selection.mp4" type="video/mp4" /><img src="assets/img/r-lab.jpg" alt="균주 선정" /></video></div>
+  <div class="txt">
+    <p class="eyebrow">Core Technology &amp; Facility</p>
+    <h2>균주 선정부터 품질관리까지,<br><span class="em">한 곳에서</span></h2>
+    <p class="ftdesc">원료 개발과 생산을 분리하지 않고, 하나의 품질 기준으로 전 과정을 연결합니다.</p>
+    <div class="techlist">
+      <div class="it"><span class="k">01</span><h3>균주 선정</h3><p>목표 기능과 제품 용도에 적합한 균주를 선정합니다.</p></div>
+      <div class="it"><span class="k">02</span><h3>발효 공정</h3><p>온도·시간·배양 조건을 데이터 기반으로 제어합니다.</p></div>
+      <div class="it"><span class="k">03</span><h3>성분 분석</h3><p>기능 성분과 주요 품질 지표를 단계별로 확인합니다.</p></div>
+      <div class="it"><span class="k">04</span><h3>직접 생산</h3><p>확정된 조건을 실제 생산라인에서 구현합니다.</p></div>
+      <div class="it"><span class="k">05</span><h3>품질관리</h3><p>생산부터 출고까지 일관된 품질 기준으로 관리합니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. 제품 및 서비스 -->
+<section class="showcase" id="products">
+  <div class="stage">
+    <div class="imgs">
+      <div class="im"><img src="assets/img/r-splita.jpg" alt="발효 원물" /></div>
+      <div class="im"><img src="assets/img/r-story.jpg" alt="약콩낫또 원료" /></div>
+    </div>
+    <div class="fcard">
+      <div class="k">주력 원료</div>
+      <h3>Fermented Soy<br>Bio Base</h3>
+      <p>분말·액상 베이스로, 식품·화장품·의약을 아우르는 중립적 원료 구조. 어떤 산업에도 즉시 적용됩니다.</p>
+      <a href="board.html" class="ul">사양 문의</a>
+    </div>
+  </div>
+</section>
+<div class="trio-head">
+  <span class="eyebrow">Products &amp; Services</span>
+  <h2>제품 및 서비스</h2>
+</div>
+<div class="trio">
+  <a class="tcell" href="board.html">
+    <img src="img/service-ingredient.jpg" alt="원료" />
+    <div><div class="k">Ingredient</div><h3>원료</h3><div class="kr">Fermented Soy Bio Base · 분말·액상</div></div>
+    <span class="ul light">Learn more</span>
+  </a>
+  <a class="tcell" href="board.html">
+    <img src="img/service-custom.png" alt="맞춤 개발" />
+    <div><div class="k">Customizing</div><h3>맞춤 개발</h3><div class="kr">식품·화장품·의약용 맞춤 기능성 원료</div></div>
+    <span class="ul light">Learn more</span>
+  </a>
+  <a class="tcell" href="board.html">
+    <img src="img/service-pb-odm.jpg" alt="PB / ODM" />
+    <div><div class="k">PB / ODM</div><h3>PB · ODM</h3><div class="kr">완제품 기획·개발 (낫또 등)</div></div>
+    <span class="ul light">Learn more</span>
+  </a>
+</div>
+
+<!-- 7. 시설과 품질관리 -->
+<section class="facility" id="facility">
+  <div class="wrap two">
+    <div class="imgs rv">
+      <video autoplay muted loop playsinline preload="metadata" poster="assets/img/r-pano.jpg"><source src="video/andong-factory.mp4" type="video/mp4" /><img src="assets/img/r-pano.jpg" alt="안동 자체 공장" /></video>
+    </div>
+    <div class="rv">
+      <p class="eyebrow">Facility &amp; Quality</p>
+      <h2>안동 자체 공장·연구소에서<br>직접 만듭니다</h2>
+      <p class="body">경북 안동의 자체 제조 공장과 기업부설연구소(2018 인증)를 기반으로, 발효·분말·액상 생산 설비와 HACCP 위생 라인을 갖추고 있습니다. 원료 수급부터 완제품까지 전 과정을 내재화해 공급 안정성을 확보합니다.</p>
+      <div class="caps">
+        <div class="cap"><b>발효 생산</b><span>독자 균주·발효 제어 설비</span></div>
+        <div class="cap"><b>분말·액상</b><span>중립적 원료 베이스 생산</span></div>
+        <div class="cap"><b>맞춤 원료</b><span>산업별 규격 대응 설계</span></div>
+        <div class="cap"><b>PB·ODM</b><span>낫또 등 완제품 라인</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. 협업 사례와 파트너 -->
+<section class="cobrand" id="partners">
+  <div class="wrap two">
+    <div class="rv">
+      <p class="eyebrow">Partners &amp; Cases</p>
+      <h2>업계가 신뢰하는<br><span class="em">파트너</span>입니다</h2>
+      <p>CJ제일제당·풀무원·서울대부터 애터미, 그리고 미국 H-mart까지. 제조·유통·해외 전 영역에서 파머스바이오의 원료와 품질이 검증되었습니다.</p>
+      <a href="board.html" class="ul light">제휴 문의 →</a>
+    </div>
+    <div class="plogos rv">
+      <div class="plogo"><div class="cat">제조 / ODM</div><div class="nm">CJ제일제당<br>풀무원 <span>‘짜먹는 나또’ 원료</span></div></div>
+      <div class="plogo"><div class="cat">R&amp;D 협력</div><div class="nm">서울대(밥스누)<br><span>약콩낫또 공급</span></div></div>
+      <div class="plogo"><div class="cat">국내 유통</div><div class="nm">애터미 <span>(2025)</span><br>NS·홈앤쇼핑·쿠팡</div></div>
+      <div class="plogo"><div class="cat">해외 · 기내식</div><div class="nm">미국 H-mart·LA 한남체인<br>SKY STAR AIRWAYS</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. 인증 및 기술자료 -->
+<section class="cert" id="cert">
+  <div class="wrap two">
+    <div class="rv">
+      <p class="eyebrow">Certifications &amp; Awards</p>
+      <h2>인증과 수상으로<br>증명된 신뢰</h2>
+      <div class="certlist">
+        <span class="tagpill">HACCP <em>2018</em></span>
+        <span class="tagpill">ISO 22000 <em>2020</em></span>
+        <span class="tagpill">HALAL <em>2020</em></span>
+        <span class="tagpill">6차산업 인증 <em>2018</em></span>
+        <span class="tagpill">기업부설연구소 <em>2018</em></span>
+      </div>
+      <div style="margin-top:24px">
+        <div class="awrow"><b>경상북도지사 표창</b> · 우수중소기업 선정 (2006)</div>
+        <div class="awrow"><b>농업과학기술원장상</b> · 청국장초콜릿 (2007)</div>
+      </div>
+    </div>
+    <div class="rv">
+      <p class="eyebrow">Technical Documents</p>
+      <h2>기술자료 다운로드</h2>
+      <div class="dl">
+        <div class="dlrow" onclick="reqDoc('회사소개서')"><b>회사소개서 (PDF)</b><span>Download</span></div>
+        <div class="dlrow" onclick="reqDoc('원료 스펙시트')"><b>원료 스펙시트</b><span>Request</span></div>
+        <div class="dlrow" onclick="reqDoc('시험성적서')"><b>시험성적서·인증서</b><span>Request</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="certcards">
+      <div class="ccard rv"><div class="im"><img src="img/cert-haccp-2025.jpg" alt="HACCP 인증서 제2025-4-0245호" loading="lazy" /></div><div class="cap"><b>HACCP 인증서</b><span>제2025-4-0245호 · 파머스바이오</span></div></div>
+      <div class="ccard rv"><div class="im"><img src="img/cert-haccp-2018.jpg" alt="HACCP 인증서 제2018-4-9056호" loading="lazy" /></div><div class="cap"><b>HACCP 인증서</b><span>제2018-4-9056호</span></div></div>
+      <div class="ccard rv"><div class="im"><img src="img/cert-lab-2018.jpg" alt="기업부설연구소 인정서" loading="lazy" /></div><div class="cap"><b>기업부설연구소 인정서</b><span>한국산업기술진흥협회 · 2018</span></div></div>
+      <div class="ccard rv"><div class="im"><img src="img/cert-trademark.jpg" alt="경북우수농산물 상표사용지정서" loading="lazy" /></div><div class="cap"><b>경북우수농산물 상표사용지정서</b><span>니껴바이오</span></div></div>
+      <div class="ccard rv"><div class="im"><img src="img/cert-trade-2021.jpg" alt="한국무역협회 인증" loading="lazy" /></div><div class="cap"><b>한국무역협회 인증</b><span>2021</span></div></div>
+      <div class="ccard rv"><div class="im"><img src="img/patent-doenjang-2009.jpg" alt="특허 청국장 된장" loading="lazy" /></div><div class="cap"><b>특허 · 청국장 된장</b><span>2009</span></div></div>
+      <div class="ccard rv"><div class="im"><img src="img/patent-chocoball-2008.jpg" alt="특허 청국장 초코볼" loading="lazy" /></div><div class="cap"><b>특허 · 청국장 초코볼</b><span>2008</span></div></div>
+      <div class="ccard rv"><div class="im"><img src="img/award-silarian-2019.jpg" alt="실라리안 표창패" loading="lazy" /></div><div class="cap"><b>실라리안 표창패</b><span>2019</span></div></div>
+      <div class="ccard rv"><div class="im"><img src="img/award-andong-2006.jpg" alt="안동시장 표창장 2006" loading="lazy" /></div><div class="cap"><b>안동시장 표창장</b><span>2006</span></div></div>
+      <div class="ccard rv"><div class="im"><img src="img/award-andong-2008.jpg" alt="안동시장 표창장 2008" loading="lazy" /></div><div class="cap"><b>안동시장 표창장</b><span>2008</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. 문의 폼 -->
+<!-- 9. 인스타그램 -->
+<section class="insta" id="insta">
+  <div class="wrap ihead">
+    <div class="rv">
+      <p class="eyebrow">Instagram</p>
+      <h2>파머스바이오의 소식</h2>
+    </div>
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="ul">@farmersbio →</a>
+  </div>
+  <div class="igrid">
+      <a class="icell rv" href="https://www.instagram.com/" target="_blank" rel="noopener"><img src="img/natto-01.jpg" alt="파머스바이오 인스타그램" loading="lazy" /></a>
+      <a class="icell rv" href="https://www.instagram.com/" target="_blank" rel="noopener"><img src="img/natto-black-cutout.png" alt="파머스바이오 인스타그램" loading="lazy" /></a>
+      <a class="icell rv" href="https://www.instagram.com/" target="_blank" rel="noopener"><img src="img/natto-03.jpg" alt="파머스바이오 인스타그램" loading="lazy" /></a>
+      <a class="icell rv" href="https://www.instagram.com/" target="_blank" rel="noopener"><img src="img/natto-yellow-cutout.png" alt="파머스바이오 인스타그램" loading="lazy" /></a>
+      <a class="icell rv" href="https://www.instagram.com/" target="_blank" rel="noopener"><img src="img/natto-04.jpg" alt="파머스바이오 인스타그램" loading="lazy" /></a>
+      <a class="icell rv" href="https://www.instagram.com/" target="_blank" rel="noopener"><img src="img/product-black-natto.png" alt="파머스바이오 인스타그램" loading="lazy" /></a>
+  </div>
+  <div class="imore"><a href="https://www.instagram.com/" target="_blank" rel="noopener" class="btn red">인스타그램에서 더 보기</a></div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a href="#top" class="brand"><img src="assets/img/logo-white.png" alt="파머스바이오" style="height:18px;width:auto" /></a>
+        <p class="fabout">대두 발효 기반 고기능성 원료 설계·제조 파트너. 발효를 넘어 설계로.</p>
+      </div>
+      <div class="fcol">
+        <h4>바로가기</h4>
+        <a href="#problems">문제</a>
+        <a href="#tech">핵심 기술</a>
+        <a href="#process">개발 프로세스</a>
+        <a href="#products">제품·서비스</a>
+      </div>
+      <div class="fcol">
+        <h4>연락처</h4>
+        <p>경북 안동시 남선면 검정길 27, 제1동</p>
+        <p>T. 054-859-2224 · F. 054-843-2224</p>
+        <p>farmersbio@naver.com</p>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>&copy; 2026 파머스바이오 (Farmers Bio). All rights reserved.</span>
+      <span><a href="privacy.html">개인정보처리방침</a> &middot; <a href="terms.html">이용약관</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hdr=document.getElementById('hdr');
+  const onScroll=()=>hdr.classList.toggle('solid',window.scrollY>8);
+  window.addEventListener('scroll',onScroll);onScroll();
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%3*0.07)+'s';io.observe(el);});
+  function closeM(){document.getElementById('mnav').classList.remove('open');}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc'){closeM();}});
+  function reqDoc(n){alert(n+' 자료는 OEM · ODM 의뢰 게시판을 통해 요청해 주세요.');location.href='board.html';}
+  function submitForm(e){e.preventDefault();const b=e.target.querySelector('button');b.textContent='접수되었습니다 ✓';e.target.reset();setTimeout(()=>b.textContent='문의 보내기',2600);return false;}
+  // 개인정보처리방침 · 이용약관 → 페이지 내 모달
+  (function(){
+    var M=null;
+    function build(){
+      var ov=document.createElement('div');ov.id='docModal';
+      ov.style.cssText='position:fixed;inset:0;z-index:400;background:rgba(20,22,44,.55);display:none;align-items:center;justify-content:center;padding:32px 16px';
+      ov.innerHTML='<div style="background:#fff;border-radius:12px;width:100%;max-width:760px;height:min(84vh,880px);display:flex;flex-direction:column;overflow:hidden;box-shadow:0 30px 70px rgba(20,22,44,.3)"><div style="display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid #E4DFD3;flex:0 0 auto"><b id="docTitle" style="font-size:16px;font-weight:800;color:#1C1A16"></b><button type="button" id="docX" aria-label="닫기" style="background:none;border:0;font-size:22px;color:#948F82;cursor:pointer;padding:4px">&#10005;</button></div><iframe id="docFrame" title="문서" style="flex:1 1 auto;width:100%;border:0;display:block"></iframe></div>';
+      document.body.appendChild(ov);
+      var frame=ov.querySelector('#docFrame');
+      function close(){ov.style.display='none';frame.src='about:blank';document.body.style.overflow='';}
+      ov.addEventListener('click',function(e){if(e.target===ov)close();});
+      ov.querySelector('#docX').addEventListener('click',close);
+      document.addEventListener('keydown',function(e){if(e.key==='Escape'||e.key==='Esc')close();});
+      M={ov:ov,frame:frame,title:ov.querySelector('#docTitle')};
+    }
+    function openDoc(href,label){if(!M)build();M.title.textContent=label;M.frame.src=href+(href.indexOf('?')<0?'?embed=1':'&embed=1');M.ov.style.display='flex';document.body.style.overflow='hidden';}
+    document.querySelectorAll('a[href$="privacy.html"],a[href$="terms.html"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var href=a.getAttribute('href');var label=(a.textContent||'').trim()||(href.indexOf('privacy')>=0?'개인정보처리방침':'이용약관');openDoc(href,label);});});
+  })();
+</script>
+</body>
+</html>
