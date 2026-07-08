@@ -273,6 +273,30 @@
   window.fbCloseWrite = fbCloseWrite;
   window.fbTogglePw = fbTogglePw;
 
+  // ---------- 문의 접수 시 회사 이메일로 전송 (FormSubmit) ----------
+  var FB_MAIL = "farmersbio@naver.com"; // 문의 수신 이메일 (변경 가능)
+  function fbSendMail(d){
+    try{
+      fetch("https://formsubmit.co/ajax/"+FB_MAIL, {
+        method:"POST",
+        headers:{ "Content-Type":"application/json", "Accept":"application/json" },
+        body: JSON.stringify({
+          _subject: "[파머스바이오 OEM·ODM 문의] " + d.title,
+          _template: "table",
+          _captcha: "false",
+          "제목": d.title,
+          "이름": d.author,
+          "회사명": d.company || "-",
+          "연락처(회신)": d.contact,
+          "비밀글 여부": d.secret ? "비밀글" : "공개글",
+          "열람 비밀번호": d.secret ? d.pw : "-",
+          "문의 내용": d.body,
+          "접수 시각": d.date
+        })
+      }).catch(function(){});
+    }catch(e){}
+  }
+
   form.addEventListener("submit", function(e){
     e.preventDefault();
     var secret = document.getElementById("fbSecret").checked;
@@ -296,6 +320,7 @@
     d.views = 0;
     users.push(d);
     save(users);
+    fbSendMail(d);
     fbCloseWrite();
     render();
     openView(d.id);
