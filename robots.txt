@@ -7,4 +7,4 @@ Allow: /
 User-agent: Daumoa
 Allow: /
 
-Sitemap: https://farmersbio.vercel.app/sitemap.xml
+Sitemap: https://www.farmersbio.kr/sitemap.xml
