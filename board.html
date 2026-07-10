@@ -4,20 +4,27 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>OEM · ODM 의뢰 — 파머스바이오</title>
-<meta name="description" content="파머스바이오 OEM · ODM 의뢰 게시판. 대두 발효 기반 원료·완제품 생산 문의 접수 및 진행 사례." />
+<meta name="description" content="파머스바이오 OEM · ODM 문의 접수. 대두 발효 기반 원료·완제품 생산 상담을 신청할 수 있습니다." />
+<link rel="canonical" href="https://www.farmersbio.kr/board.html" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.farmersbio.kr/board.html" />
+<meta property="og:title" content="OEM · ODM 문의 — 파머스바이오" />
+<meta property="og:description" content="대두 발효 기반 원료·완제품 OEM·ODM 상담을 신청하세요." />
+<meta property="og:image" content="https://www.farmersbio.kr/assets/img/r-hero.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://cdn.jsdelivr.net" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="assets/css/site.css?v=20260708" />
+<link rel="stylesheet" href="assets/css/site.css?v=20260710-2" />
 <style>
   .board-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:22px;flex-wrap:wrap}
   .board-count{font-size:14px;color:var(--muted)}
   .board-count b{color:var(--ink)}
   .board .btn{padding:12px 22px}
-  .board td.ttl a{cursor:pointer}
+  .board td.ttl a,.board td.ttl .post-link{cursor:pointer}
   .board td.ttl .lock{color:var(--muted-2);margin-right:5px}
   .board td.ttl .newbadge{display:inline-block;margin-left:8px;font-family:var(--en);font-size:11px;color:#fff;background:var(--red);border-radius:3px;padding:1px 6px;vertical-align:1px;letter-spacing:.04em}
   .board tbody tr:hover{background:var(--parchment)}
@@ -42,6 +49,11 @@
   .fb-f textarea{min-height:140px;resize:vertical;line-height:1.7}
   .fb-secret{display:flex;align-items:center;gap:9px;margin:4px 0 16px;font-size:14px;color:var(--ink);cursor:pointer;user-select:none}
   .fb-secret input{width:16px;height:16px;accent-color:var(--red)}
+  .fb-consent{align-items:flex-start;padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:var(--parchment);font-size:13.5px;line-height:1.6}
+  .fb-consent input{flex:0 0 auto;margin-top:3px}
+  .fb-consent a{text-decoration:underline;text-underline-offset:3px}
+  .post-link{font:inherit;font-weight:600;color:inherit;background:none;border:0;padding:0;text-align:left;cursor:pointer}
+  .post-link:hover{color:var(--red)}
   .fb-pw{display:none} .fb-pw.show{display:block}
   .fb-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:6px}
   .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
@@ -64,12 +76,13 @@
     .board td.num{color:var(--muted-2)}
     .board td.ttl{order:-1;margin-bottom:4px}
     .board td.ttl::before{display:none}
-    .board td.ttl a{font-size:15.5px;text-align:left;line-height:1.5}
+    .board td.ttl a,.board td.ttl .post-link{font-size:15.5px;text-align:left;line-height:1.5}
     .board td.meta{font-size:13px}
   }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main-content">본문 바로가기</a>
 
 <header id="hdr" class="static-solid">
   <div class="bar">
@@ -87,10 +100,6 @@
       <div class="mi"><a href="brand-welliz.html">BRAND<span class="car">▼</span></a>
         <div class="sub"><div class="subin">
           <a href="brand-welliz.html">오롯농장</a>
-          <a href="brand-mokhyang.html">애터미</a>
-          <a href="brand-treeonlab.html">풀무원</a>
-          <a href="brand-dufour.html">쌈보보쌈</a>
-          <a href="brand-etc.html">평화김해뒷고기</a>
         </div></div></div>
     </nav>
     <a href="index.html" class="brand" aria-label="파머스바이오 홈">
@@ -113,18 +122,18 @@
       <a href="forms.html">생산 가능 제형</a><a href="packaging.html">포장 형태</a>
       <a href="board.html">OEM · ODM 의뢰</a></div>
     <div class="mg"><h5>Brand</h5>
-      <a href="brand-welliz.html">오롯농장</a><a href="brand-mokhyang.html">애터미</a>
-      <a href="brand-treeonlab.html">풀무원</a><a href="brand-dufour.html">쌈보보쌈</a><a href="brand-etc.html">평화김해뒷고기</a></div>
+      <a href="brand-welliz.html">오롯농장</a></div>
     <div class="mg"><h5>정책</h5><a href="privacy.html" target="_blank" rel="noopener">개인정보처리방침</a><a href="terms.html" target="_blank" rel="noopener">이용약관</a></div>
     <a href="board.html" class="ul light" onclick="closeM()">문의하기</a>
   </div>
 </div>
 
+<main id="main-content">
 <section class="pagehero">
   <div class="wrap">
     <span class="eyebrow">OEM · ODM Inquiry</span>
     <h1>OEM · ODM 의뢰</h1>
-    <p class="lead">자세하게 작성해 주셔야 원활한 상담이 가능합니다. 진행 중이거나 완료된 생산 문의를 확인하실 수 있습니다.</p>
+    <p class="lead">필요한 원료·제형과 목표 사양을 남겨주시면 담당자가 확인 후 연락드립니다.</p>
   </div>
 </section>
 
@@ -149,15 +158,14 @@
     <div class="fb-mhead"><h3 id="wTitle">OEM · ODM 의뢰 작성</h3><button class="fb-x" type="button" onclick="fbCloseWrite()" aria-label="닫기">✕</button></div>
     <div class="fb-mbody">
       <form id="fbForm" autocomplete="off">
-        <div class="fb-f"><label>제목<span class="req">*</span></label><input type="text" name="title" maxlength="80" placeholder="예: 나토키나제 고활성 원료 OEM 문의" required /></div>
+        <div class="fb-f"><label for="fbTitle">제목<span class="req">*</span></label><input id="fbTitle" type="text" name="title" maxlength="80" placeholder="예: 나토키나제 고활성 원료 OEM 문의" required /></div>
         <div class="fb-f two">
-          <div class="fb-f"><label>이름<span class="req">*</span></label><input type="text" name="author" maxlength="20" placeholder="담당자 성함" required /></div>
-          <div class="fb-f"><label>회사명</label><input type="text" name="company" maxlength="40" placeholder="(선택) 회사·브랜드명" /></div>
+          <div class="fb-f"><label for="fbAuthor">이름<span class="req">*</span></label><input id="fbAuthor" type="text" name="author" maxlength="20" autocomplete="name" placeholder="담당자 성함" required /></div>
+          <div class="fb-f"><label for="fbCompany">회사명</label><input id="fbCompany" type="text" name="company" maxlength="40" autocomplete="organization" placeholder="(선택) 회사·브랜드명" /></div>
         </div>
-        <div class="fb-f"><label>연락처 (이메일 또는 전화)<span class="req">*</span></label><input type="text" name="contact" maxlength="60" placeholder="회신받으실 이메일 또는 연락처" required /></div>
-        <div class="fb-f"><label>문의 내용<span class="req">*</span></label><textarea name="body" maxlength="3000" placeholder="원료/제형, 목표 규격·기능성, 예상 물량, 희망 일정 등을 자세히 적어주시면 상담이 원활합니다." required></textarea></div>
-        <label class="fb-secret"><input type="checkbox" id="fbSecret" onchange="fbTogglePw()" /> 비밀글로 작성 (지정한 비밀번호로만 열람)</label>
-        <div class="fb-f fb-pw" id="fbPwWrap"><label>비밀번호<span class="req">*</span></label><input type="password" name="pw" maxlength="30" placeholder="열람용 비밀번호" /></div>
+        <div class="fb-f"><label for="fbContact">연락처 (이메일 또는 전화)<span class="req">*</span></label><input id="fbContact" type="text" name="contact" maxlength="60" autocomplete="email" placeholder="회신받으실 이메일 또는 연락처" required /></div>
+        <div class="fb-f"><label for="fbBody">문의 내용<span class="req">*</span></label><textarea id="fbBody" name="body" maxlength="3000" placeholder="원료/제형, 목표 규격·기능성, 예상 물량, 희망 일정 등을 자세히 적어주시면 상담이 원활합니다." required></textarea></div>
+        <label class="fb-secret fb-consent"><input type="checkbox" id="fbPrivacy" required /> <span><a href="privacy.html">개인정보 수집·이용 내용</a>을 확인했으며 문의 처리와 회신을 위한 개인정보 수집·이용에 동의합니다.<span class="req">*</span></span></label>
         <div class="fb-actions">
           <span class="fb-err" id="fbErr"></span>
           <button class="btn ghost" type="button" onclick="fbCloseWrite()">취소</button>
@@ -181,6 +189,8 @@
   </div>
 </div>
 
+</main>
+
 <footer>
   <div class="wrap">
     <div class="fgrid">
@@ -200,26 +210,15 @@
     </div>
   </div>
 </footer>
-<script src="assets/js/site.js"></script>
+<script src="assets/js/site.js?v=20260710-3"></script>
 <script>
 (function(){
   "use strict";
   var LS_KEY = "fb_board_posts_v1";
   var LS_VIEWS = "fb_board_views_v1";
 
-  var SEED = [
-    {no:10, title:"나토키나제 함유 정제 OEM — MOQ·단가 문의", author:"김지훈", date:"2026-06-30", views:3, secret:true,  body:""},
-    {no:9,  title:"자사 브랜드 낫또 완제품 ODM 진행 가능 여부", author:"이수민", date:"2026-05-18", views:2, secret:true,  body:""},
-    {no:8,  title:"발효 대두 단백 분말 대량 공급 단가 문의",   author:"박현우", date:"2026-04-27", views:58, secret:false, body:"발효 대두 단백 분말을 월 단위로 안정적으로 공급받고자 합니다. 규격(단백 함량 기준)과 월 500kg~1t 기준 단가, 최소 계약 기간을 안내 부탁드립니다. 시료 30~50g 선발송도 가능한지 궁금합니다."},
-    {no:7,  title:"청국장 환 제품 OEM 리드타임 문의",         author:"정예린", date:"2026-03-30", views:2, secret:true,  body:""},
-    {no:6,  title:"이소플라본 이너뷰티 스틱 ODM 견적 요청",    author:"최민석", date:"2026-03-25", views:2, secret:true,  body:""},
-    {no:5,  title:"할랄 인증 대응 가능한 발효 원료 문의",      author:"한지원", date:"2026-03-04", views:1, secret:true,  body:""},
-    {no:4,  title:"발효 대두 추출물 샘플 요청 및 규격서 문의", author:"오세훈", date:"2026-02-25", views:124, secret:false, body:"건강기능식품 신제품에 적용할 발효 대두 추출물을 검토 중입니다. 기능 성분 함량과 규격서(시험성적서 포함) 확인이 가능한지, 개발용 샘플을 소량 받아볼 수 있는지 문의드립니다."},
-    {no:3,  title:"건강기능식품 신제품 원료 개발 상담 요청",   author:"황서연", date:"2026-01-12", views:147, secret:false, body:"이너뷰티/장 건강 콘셉트의 신제품을 준비 중입니다. 대두 발효 기반으로 제안 가능한 기능성 원료와 제형(분말·정제·스틱), 대략적인 개발 일정에 대해 상담을 요청드립니다."},
-    {no:2,  title:"γ-PGA 소량 공급 가능 여부 문의",           author:"김도영", date:"2025-12-15", views:2, secret:true,  body:""},
-    {no:1,  title:"OEM 최소 주문 수량(MOQ)과 진행 절차 문의",  author:"이상민", date:"2025-07-22", views:186, secret:false, body:"처음 자사 브랜드 제품을 준비하는 단계입니다. OEM 진행 시 최소 주문 수량(MOQ)과 견적·샘플·양산까지의 대략적인 절차 및 소요 기간이 궁금합니다. 상담 가능한 연락처도 함께 안내 부탁드립니다."}
-  ];
-  var SEED_MAX = 10;
+  var SEED = [];
+  var SEED_MAX = 0;
 
   function load(){ try{ return JSON.parse(localStorage.getItem(LS_KEY)) || []; }catch(e){ return []; } }
   function save(a){ try{ localStorage.setItem(LS_KEY, JSON.stringify(a)); }catch(e){} }
@@ -253,7 +252,7 @@
       var badge = isNew(p) ? '<span class="newbadge">NEW</span>' : '';
       return '<tr>'+
         '<td class="num" data-l="No">'+p.no+'</td>'+
-        '<td class="ttl" data-l="제목"><a data-id="'+esc(p.id)+'">'+lock+esc(p.title)+badge+'</a></td>'+
+        '<td class="ttl" data-l="제목"><button class="post-link" type="button" data-id="'+esc(p.id)+'">'+lock+esc(p.title)+badge+'</button></td>'+
         '<td class="meta" data-l="글쓴이">'+esc(p.author)+'</td>'+
         '<td class="meta" data-l="작성시간">'+esc(p.date)+'</td>'+
         '<td class="meta" data-l="조회수">'+(p.views||0)+'</td>'+
@@ -265,13 +264,13 @@
   var ovWrite = document.getElementById("ovWrite");
   var form = document.getElementById("fbForm");
   var errEl = document.getElementById("fbErr");
-  function fbOpenWrite(){ errEl.textContent=""; form.reset(); document.getElementById("fbPwWrap").classList.remove("show"); ovWrite.classList.add("open"); ovWrite.setAttribute("aria-hidden","false"); setTimeout(function(){ form.title.focus(); },80); }
-  function fbCloseWrite(){ ovWrite.classList.remove("open"); ovWrite.setAttribute("aria-hidden","true"); }
-  function fbTogglePw(){ document.getElementById("fbPwWrap").classList.toggle("show", document.getElementById("fbSecret").checked); }
+  var lastDialogFocus = null;
+  function dialogFocusables(ov){ return Array.prototype.slice.call(ov.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),textarea:not([disabled])')).filter(function(el){ return el.offsetParent!==null; }); }
+  function fbOpenWrite(){ lastDialogFocus=document.activeElement;errEl.textContent=""; form.reset(); ovWrite.classList.add("open"); ovWrite.setAttribute("aria-hidden","false"); setTimeout(function(){ document.getElementById("fbTitle").focus(); },80); }
+  function fbCloseWrite(){ ovWrite.classList.remove("open"); ovWrite.setAttribute("aria-hidden","true"); if(lastDialogFocus)lastDialogFocus.focus(); }
 
   document.getElementById("btnWrite").addEventListener("click", fbOpenWrite);
   window.fbCloseWrite = fbCloseWrite;
-  window.fbTogglePw = fbTogglePw;
 
   // ---------- 문의 접수 시 회사 이메일로 전송 (FormSubmit) ----------
   var FB_MAIL = "ramen@farmersfoodlab.com"; // 문의 수신 이메일 (변경 가능)
@@ -288,8 +287,6 @@
           "이름": d.author,
           "회사명": d.company || "-",
           "연락처(회신)": d.contact,
-          "비밀글 여부": d.secret ? "비밀글" : "공개글",
-          "열람 비밀번호": d.secret ? d.pw : "-",
           "문의 내용": d.body,
           "접수 시각": d.date
         })
@@ -299,18 +296,17 @@
 
   form.addEventListener("submit", function(e){
     e.preventDefault();
-    var secret = document.getElementById("fbSecret").checked;
     var d = {
       title: form.title.value.trim(),
       author: form.author.value.trim(),
       company: form.company.value.trim(),
       contact: form.contact.value.trim(),
       body: form.body.value.trim(),
-      secret: secret,
-      pw: secret ? form.pw.value : ""
+      secret: false,
+      pw: ""
     };
     if(!d.title || !d.author || !d.contact || !d.body){ errEl.textContent="필수 항목을 입력해 주세요."; return; }
-    if(secret && !d.pw){ errEl.textContent="비밀글 비밀번호를 입력해 주세요."; return; }
+    if(!document.getElementById("fbPrivacy").checked){ errEl.textContent="개인정보 수집·이용에 동의해 주세요."; return; }
     var users = load();
     var maxNo = users.reduce(function(m,p){ return Math.max(m,p.no); }, SEED_MAX);
     d.id = "u-"+Date.now();
@@ -340,6 +336,7 @@
   function openView(id){
     var p = findPost(id);
     if(!p) return;
+    lastDialogFocus=document.activeElement;
     if(p.secret){
       if(p.seed){ alert("비공개로 접수된 문의글입니다.\n작성자와 관리자만 열람할 수 있습니다."); return; }
       var input = prompt("비밀글입니다. 비밀번호를 입력하세요.");
@@ -366,8 +363,9 @@
       actions.querySelector("[data-del]").addEventListener("click", function(){ delPost(p); });
     }
     ovView.classList.add("open"); ovView.setAttribute("aria-hidden","false");
+    setTimeout(function(){ ovView.querySelector('.fb-x').focus(); },80);
   }
-  function fbCloseView(){ ovView.classList.remove("open"); ovView.setAttribute("aria-hidden","true"); }
+  function fbCloseView(){ ovView.classList.remove("open"); ovView.setAttribute("aria-hidden","true"); if(lastDialogFocus)lastDialogFocus.focus(); }
   window.fbCloseView = fbCloseView;
 
   function delPost(p){
@@ -383,16 +381,21 @@
   }
 
   bBody.addEventListener("click", function(e){
-    var a = e.target.closest("a[data-id]");
+    var a = e.target.closest("[data-id]");
     if(!a) return;
     e.preventDefault();
     openView(a.getAttribute("data-id"));
   });
 
   [ovWrite, ovView].forEach(function(ov){
-    ov.addEventListener("click", function(e){ if(e.target===ov){ ov.classList.remove("open"); ov.setAttribute("aria-hidden","true"); } });
+    ov.addEventListener("click", function(e){ if(e.target===ov){ if(ov===ovWrite)fbCloseWrite();else fbCloseView(); } });
   });
-  document.addEventListener("keydown", function(e){ if(e.key==="Escape"){ fbCloseWrite(); fbCloseView(); } });
+  document.addEventListener("keydown", function(e){
+    var activeOv=ovView.classList.contains("open")?ovView:(ovWrite.classList.contains("open")?ovWrite:null);
+    if(!activeOv)return;
+    if(e.key==="Escape"){e.preventDefault();if(activeOv===ovWrite)fbCloseWrite();else fbCloseView();return;}
+    if(e.key==="Tab"){var items=dialogFocusables(activeOv);if(!items.length)return;var first=items[0],last=items[items.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}
+  });
 
   render();
 })();
