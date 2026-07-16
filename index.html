@@ -115,11 +115,11 @@
 
   .hero{position:relative;min-height:100vh;color:#fff;overflow:hidden}
   .hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
-  .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(0,0,0,.62) 0%,rgba(0,0,0,.45) 28%,rgba(0,0,0,.12) 58%,rgba(0,0,0,0) 78%)}
-  .hero .inner{position:absolute;top:29%;left:0;max-width:700px;margin:0;padding:0 24px 0 clamp(32px,5vw,80px);text-shadow:none}
+  .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at center,rgba(0,0,0,.44) 0%,rgba(0,0,0,.32) 55%,rgba(0,0,0,.2) 100%)}
+  .hero .inner{position:absolute;inset:0;max-width:none;margin:0;padding:0 24px 3vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;text-shadow:none}
   .hero .eyebrow{display:block;color:rgba(255,255,255,.8);opacity:1;font-size:13px;letter-spacing:.12em;font-weight:600;text-transform:none;margin-bottom:20px;text-shadow:none}
   .hero h1{font-size:clamp(42px,3.1vw,62px);line-height:1.15;letter-spacing:-.04em;font-weight:800;max-width:660px;white-space:nowrap;text-shadow:0 2px 12px rgba(0,0,0,.2)}
-  .hero p.lead{margin:30px 0 0;font-size:16px;line-height:1.7;max-width:540px;color:rgba(255,255,255,.86);font-weight:400;text-shadow:none}
+  .hero p.lead{margin:22px 0 0;font-size:15.5px;line-height:1.8;max-width:620px;color:rgba(255,255,255,.92);font-weight:400;letter-spacing:.01em;text-shadow:0 1px 10px rgba(0,0,0,.3)}
   .hero .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:30px}
   .hero .hbtn{display:inline-flex;align-items:center;justify-content:center;gap:.45em;height:54px;padding:0 28px;border-radius:3px;font-size:14px;font-weight:600;letter-spacing:.01em;transition:.22s;cursor:pointer;border:1px solid transparent}
   .hero .hbtn.red{background:var(--red);color:#fff;border-color:var(--red)}
@@ -129,15 +129,26 @@
   .hero .trust{margin-top:22px;font-size:12.5px;font-weight:500;letter-spacing:.03em;color:rgba(255,255,255,.8);text-shadow:none}
   .hero .trust i{font-style:normal;padding:0 14px;color:rgba(255,255,255,.38)}
   .scrollhint{position:absolute;right:40px;bottom:38px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;writing-mode:vertical-rl;opacity:.7}
+  /* 오닉스 스타일 히어로 중앙 로고 릴 */
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  .logo-reel{position:relative;width:min(760px,92vw);height:100px;display:flex;align-items:center;justify-content:center}
+  .logo-reel img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-height:90px;max-width:min(380px,64vw);width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0}
+  .logo-reel img.on{opacity:1}
+  .logo-reel img.fb{max-height:none;max-width:min(620px,84vw);filter:drop-shadow(0 2px 16px rgba(0,0,0,.32));transition:opacity .8s ease,transform .8s ease;transform:translate(-50%,-50%) scale(.94)}
+  .logo-reel img.fb.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+  .hero .fadeup{opacity:0;transform:translateY(14px);transition:.8s cubic-bezier(.22,.61,.36,1)}
+  .hero .fadeup.in{opacity:1;transform:none}
+  .hero .cta{display:inline-block;font-size:13px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.35);transition:.25s}
+  .hero .cta:hover{letter-spacing:.3em;opacity:.85}
   @media(max-width:768px){
     .hero{min-height:720px;min-height:100svh}
-    .hero::after{background:linear-gradient(0deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.42) 45%,rgba(0,0,0,.05) 78%)}
-    .hero .inner{top:auto;bottom:9%;left:0;right:0;max-width:none;padding:0 24px}
-    .hero h1{font-size:clamp(36px,9vw,42px);max-width:none;white-space:normal}
-    .hero p.lead{font-size:14.5px;max-width:none}
-    .hero .row{flex-direction:column;align-items:stretch;gap:10px}
-    .hero .hbtn{width:100%;height:52px}
-    .hero .trust{font-size:12px}
+    .hero::after{background:radial-gradient(ellipse at center,rgba(0,0,0,.5) 0%,rgba(0,0,0,.36) 60%,rgba(0,0,0,.24) 100%)}
+    .hero .inner{padding-bottom:2vh}
+    .hero p.lead{font-size:14.5px;max-width:360px}
+    .hero p.lead br{display:none}
+    .logo-reel{height:76px}
+    .logo-reel img{max-height:62px;max-width:240px}
+    .logo-reel img.fb{max-width:min(320px,84vw)}
     .scrollhint{display:none}
   }
 
@@ -507,14 +518,28 @@
     <img class="bg" src="assets/img/r-hero.webp" alt="대두 발효 원물" />
   </video>
   <div class="wrap inner">
-    <p class="eyebrow">필요한 기능과 목표 스펙을 알려주세요</p>
-    <h1>기능성 원료 개발부터<br>양산까지 연결합니다</h1>
-    <p class="lead">대두 발효 기반의 기능성 원료를 제품 목표에 맞춰 설계하고,<br>샘플 개발부터 생산·품질관리·공급까지 한 번에 지원합니다.</p>
-    <div class="row">
-      <a href="board.html" class="hbtn red">맞춤 개발 상담하기</a>
-      <a href="ingredients.html" class="hbtn line">원료·기술 보기 →</a>
+    <h1 class="sr-only">파머스바이오 — 대두 발효 기반 기능성 원료 개발부터 양산까지</h1>
+    <div class="logo-reel" id="logoReel" aria-hidden="true">
+      <img src="img/clients/cj.png" alt="" />
+      <img src="img/clients/pulmuone.png" alt="" />
+      <img src="img/clients/babsnu.png" alt="" />
+      <img src="img/clients/atomy.png" alt="" />
+      <img src="img/clients/ns.png" alt="" />
+      <img src="img/clients/homenshopping.png" alt="" />
+      <img src="img/clients/coupang.png" alt="" />
+      <img src="img/clients/wemakeprice.png" alt="" />
+      <img src="img/clients/tmon.png" alt="" />
+      <img src="img/clients/hmart.png" alt="" />
+      <img src="img/clients/hannam.png" alt="" />
+      <img src="img/clients/gogo.png" alt="" />
+      <img src="img/clients/ssambo.png" alt="" />
+      <img src="img/clients/ilkilo.png" alt="" />
+      <img src="img/clients/pyeonghwa.png" alt="" />
+      <img src="img/clients/pyeonghwa-plus.png" alt="" />
+      <img class="fb" src="img/logo.png" alt="파머스바이오" />
     </div>
-    <p class="trust">맞춤 설계<i>│</i>파일럿 테스트<i>│</i>직접 생산<i>│</i>품질관리</p>
+    <p class="lead fadeup">대두 발효 기반의 기능성 원료를 제품 목표에 맞춰 설계하고,<br>샘플 개발부터 생산·품질관리·공급까지 한 번에 지원합니다.</p>
+    <div class="fadeup" style="margin-top:38px"><a href="board.html" class="cta">Start Your Project →</a></div>
   </div>
   <div class="scrollhint">SCROLL</div>
 </section>
@@ -832,6 +857,29 @@
 <script src="assets/js/site.js?v=20260710-3"></script>
 <script>
   function reqDoc(n){alert(n+' 자료는 OEM · ODM 의뢰 게시판을 통해 요청해 주세요.');location.href='board.html';}
+  /* 히어로 로고 릴: 클라이언트 로고 빠르게 → 파머스바이오 로고 → 문구 → CTA */
+  (function(){
+    var reel=document.getElementById('logoReel');if(!reel)return;
+    var imgs=reel.querySelectorAll('img:not(.fb)'),fb=reel.querySelector('.fb');
+    var fades=document.querySelectorAll('.hero .fadeup');
+    function finish(){
+      fb.classList.add('on');
+      setTimeout(function(){
+        fades.forEach(function(el,i){setTimeout(function(){el.classList.add('in')},i*200);});
+      },450);
+    }
+    if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      fb.classList.add('on');fades.forEach(function(el){el.classList.add('in')});return;
+    }
+    setTimeout(function(){
+      var i=0;
+      var t=setInterval(function(){
+        if(i>0)imgs[i-1].classList.remove('on');
+        if(i>=imgs.length){clearInterval(t);finish();return;}
+        imgs[i].classList.add('on');i++;
+      },125);
+    },500);
+  })();
   (function(){
     var videos=document.querySelectorAll('.lazy-video');
     if(!videos.length)return;
