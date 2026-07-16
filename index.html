@@ -132,9 +132,9 @@
   /* 오닉스 스타일 히어로 중앙 로고 릴 */
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
   .logo-reel{position:relative;width:min(760px,92vw);height:100px;display:flex;align-items:center;justify-content:center}
-  .logo-reel img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-height:90px;max-width:min(380px,64vw);width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0}
+  .logo-reel img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-height:90px;max-width:380px;max-width:min(380px,64vw);width:auto;height:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0}
   .logo-reel img.on{opacity:1}
-  .logo-reel img.fb{max-height:none;max-width:min(620px,84vw);filter:drop-shadow(0 2px 16px rgba(0,0,0,.32));transition:opacity .8s ease,transform .8s ease;transform:translate(-50%,-50%) scale(.94)}
+  .logo-reel img.fb{max-height:none;max-width:620px;max-width:min(620px,84vw);filter:drop-shadow(0 2px 16px rgba(0,0,0,.32));transition:opacity .8s ease,transform .8s ease;transform:translate(-50%,-50%) scale(.94)}
   .logo-reel img.fb.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
   .hero .fadeup{opacity:0;transform:translateY(14px);transition:.8s cubic-bezier(.22,.61,.36,1)}
   .hero .fadeup.in{opacity:1;transform:none}
@@ -148,7 +148,7 @@
     .hero p.lead br{display:none}
     .logo-reel{height:76px}
     .logo-reel img{max-height:62px;max-width:240px}
-    .logo-reel img.fb{max-width:min(320px,84vw)}
+    .logo-reel img.fb{max-width:300px;max-width:min(320px,84vw)}
     .scrollhint{display:none}
   }
 
@@ -159,7 +159,7 @@
   .clients .lab span{display:block;font-size:10.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted-2);margin-top:5px}
   .clients .mask{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
   .clients .track{display:flex;width:max-content;align-items:center;animation:marq 40s linear infinite}
-  .clients:hover .track{animation-play-state:paused}
+  @media(hover:hover){.clients:hover .track{animation-play-state:paused}}
   .clients .item{height:27px;width:auto;margin-right:58px;opacity:.62;transition:.22s;flex:0 0 auto}
   .clients .item:hover{opacity:1}
   .clients .item:hover{opacity:1;color:var(--ink)}
@@ -452,7 +452,12 @@
   .cert .ccard .cap span{display:block;font-size:13px;color:var(--muted-2);margin-top:6px}
   @media(max-width:960px){.cert .certcards{grid-template-columns:1fr 1fr}.proof .g{grid-template-columns:1fr 1fr}.proof .p{min-width:0}}
   @media(max-width:560px){.proof .g{grid-template-columns:1fr}.proof .p,.proof .p:first-child{padding:26px 0 10px;border-left:0}.proof .p:nth-child(3){padding-left:0}}
-  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}
+    /* 브랜드 연출용 애니메이션은 유지 (모바일 배터리 절약 모드 대응) */
+    .clients .track{animation-duration:40s!important;animation-iteration-count:infinite!important}
+    .logo-reel img{transition-duration:.7s!important}
+    .hero .fadeup{transition-duration:.8s!important}
+  }
 </style>
 </head>
 <body>
@@ -867,9 +872,6 @@
       setTimeout(function(){
         fades.forEach(function(el,i){setTimeout(function(){el.classList.add('in')},i*200);});
       },450);
-    }
-    if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-      fb.classList.add('on');fades.forEach(function(el){el.classList.add('in')});return;
     }
     setTimeout(function(){
       var i=0;
