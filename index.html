@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="only light" />
 <meta name="google-site-verification" content="3oq6Ph3KJUyMMAp5OjQf2c5sp61B_XtpXV-kDeCTHlQ" />
 <title>파머스바이오 — 대두 발효 기반 고기능성 원료 설계·제조 파트너</title>
 <meta name="description" content="파머스바이오는 대두 발효 기반으로 식품·화장품·의약용 고기능성 원료를 설계하고 직접 제조하는 B2B 파트너입니다. 20년 숙련 데이터로 양산 재현성과 공급 안정성을 보장합니다." />
@@ -61,7 +62,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet" />
 <style>
-  :root{
+  :root{color-scheme:only light;
     --paper:#FFFFFF; --parchment:#F5F2EB; --parchment-2:#ECE7DC;
     --ink:#1C1A16; --muted:#6E6A60; --muted-2:#948F82;
     --sage:#C7D3BE; --sage-txt:#2C3A2A;
@@ -351,7 +352,11 @@
     .navtoggle{display:block}
     .brand{grid-column:2;justify-self:center}
     .hright{grid-column:3;justify-self:end}
-    .proof .g,.prob-grid,.feature,.steps,.trio,.plines .in,.facility .two,.cobrand .two,.plogos,.cert .two,.contact .two,.fgrid{grid-template-columns:1fr}
+    .proof .g,.prob-grid,.feature,.steps,.trio,.plines .in,.facility .two,.cobrand .two,.cert .two,.contact .two,.fgrid{grid-template-columns:1fr}
+    .plogos{grid-template-columns:1fr 1fr}
+    .plogo{padding:20px 16px;min-height:96px}
+    .plogo .nm{font-size:13.5px}
+    .plogo .nm span{font-size:12px}
     .prob-grid{grid-template-columns:1fr 1fr}
     .steps{grid-template-columns:1fr 1fr}
     .proof .g{grid-template-columns:1fr 1fr}
