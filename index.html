@@ -380,6 +380,7 @@
   .insta .icell:hover img{transform:scale(1.06)}
   .insta .icell::after{content:"";position:absolute;inset:0;background:rgba(20,22,44,0);transition:.3s}
   .insta .icell:hover::after{background:rgba(20,22,44,.14)}
+  .insta .igrid-live{min-height:180px}
   .insta .imore{text-align:center;margin-top:36px}
   @media(max-width:960px){.insta .igrid{grid-template-columns:repeat(3,1fr)}.proof .g{grid-template-columns:1fr 1fr}.proof .p:nth-child(3){border-left:0;padding-left:0}}
   @media(max-width:560px){.insta .igrid{grid-template-columns:repeat(2,1fr)}}
@@ -819,13 +820,15 @@
     </div>
     <a href="https://www.instagram.com/farmersbio/" target="_blank" rel="noopener" class="ul">@farmersbio →</a>
   </div>
-  <div class="igrid">
-      <a class="icell rv" href="https://www.instagram.com/farmersbio/" target="_blank" rel="noopener"><img src="img/natto-01.webp" alt="파머스바이오 인스타그램" loading="lazy" /></a>
-      <a class="icell rv" href="https://www.instagram.com/farmersbio/" target="_blank" rel="noopener"><img src="img/natto-black-cutout.webp" alt="파머스바이오 인스타그램" loading="lazy" /></a>
-      <a class="icell rv" href="https://www.instagram.com/farmersbio/" target="_blank" rel="noopener"><img src="img/natto-03.webp" alt="파머스바이오 인스타그램" loading="lazy" /></a>
-      <a class="icell rv" href="https://www.instagram.com/farmersbio/" target="_blank" rel="noopener"><img src="img/natto-yellow-cutout.png" alt="파머스바이오 인스타그램" loading="lazy" /></a>
-      <a class="icell rv" href="https://www.instagram.com/farmersbio/" target="_blank" rel="noopener"><img src="img/natto-04.jpg" alt="파머스바이오 인스타그램" loading="lazy" /></a>
-      <a class="icell rv" href="https://www.instagram.com/farmersbio/" target="_blank" rel="noopener"><img src="img/product-black-natto.png" alt="파머스바이오 인스타그램" loading="lazy" /></a>
+  <div class="igrid-live rv">
+    <behold-widget feed-id="7kxAAj6hxOaL6BNQBLme"></behold-widget>
+    <script>
+      (() => {
+        if(window.__bhldScript)return;window.__bhldScript=true;
+        const d=document,s=d.createElement("script");s.type="module";
+        s.src="https://w.behold.so/widget.js";setTimeout(()=>{d.head.append(s);},0);
+      })();
+    </script>
   </div>
   <div class="imore"><a href="https://www.instagram.com/farmersbio/" target="_blank" rel="noopener" class="btn red">인스타그램에서 더 보기</a></div>
 </section>
