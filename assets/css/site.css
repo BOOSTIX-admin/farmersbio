@@ -1,5 +1,5 @@
 /* ===== 파머스바이오 공통 스타일 (홈 디자인 계승) ===== */
-:root{
+:root{color-scheme:only light;
   --paper:#FFFFFF; --parchment:#F5F2EB; --parchment-2:#ECE7DC;
   --ink:#1C1A16; --muted:#6E6A60; --muted-2:#948F82;
   --sage:#C7D3BE; --sage-txt:#2C3A2A;
