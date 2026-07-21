@@ -22,9 +22,10 @@
 <link rel="stylesheet" href="assets/css/site.css?v=20260710-2" />
 <style>
   .prodcard.clickable{cursor:pointer}
-  .prodcard.clickable .pimg{position:relative}
-  .prodcard.clickable .pimg::after{content:"상세보기 +";position:absolute;right:10px;bottom:10px;background:rgba(20,22,44,.78);color:#fff;font-size:11px;font-weight:600;letter-spacing:.08em;padding:7px 12px;border-radius:2px;opacity:.92;transition:.25s}
-  .prodcard.clickable:hover .pimg::after{background:var(--red)}
+  .prodcard.clickable:focus{outline:none}
+  .prodcard .pimg{overflow:hidden}
+  .prodcard .pimg img{transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+  .prodcard:hover .pimg img{transform:scale(1.05)}
   .pdmodal{display:none;position:fixed;inset:0;z-index:1000;background:rgba(15,16,28,.82)}
   .pdmodal.open{display:block}
   .pdmodal .pdscroll{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:56px 12px 40px}
