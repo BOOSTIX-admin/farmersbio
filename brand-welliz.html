@@ -20,6 +20,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/site.css?v=20260710-2" />
+<style>
+  .prodcard.clickable{cursor:pointer}
+  .prodcard.clickable .pimg{position:relative}
+  .prodcard.clickable .pimg::after{content:"상세보기 +";position:absolute;right:10px;bottom:10px;background:rgba(20,22,44,.78);color:#fff;font-size:11px;font-weight:600;letter-spacing:.08em;padding:7px 12px;border-radius:2px;opacity:.92;transition:.25s}
+  .prodcard.clickable:hover .pimg::after{background:var(--red)}
+  .pdmodal{display:none;position:fixed;inset:0;z-index:1000;background:rgba(15,16,28,.82)}
+  .pdmodal.open{display:block}
+  .pdmodal .pdscroll{position:absolute;inset:0;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:56px 12px 40px}
+  .pdmodal .pdinner{max-width:860px;margin:0 auto;background:#fff}
+  .pdmodal .pdinner img{display:block;width:100%;height:auto}
+  .pdmodal .pdclose{position:fixed;top:14px;right:16px;z-index:1001;width:42px;height:42px;border:0;border-radius:50%;background:rgba(255,255,255,.94);color:#14162C;font-size:20px;font-weight:700;cursor:pointer;line-height:1;box-shadow:0 2px 12px rgba(0,0,0,.35)}
+  body.pdlock{overflow:hidden}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">본문 바로가기</a>
@@ -93,8 +106,8 @@
       <p>파머스바이오가 직접 만든 약콩낫또 발효 완제품 라인.</p>
     </div>
     <div class="prodgrid">
-<div class="prodcard rv"><div class="pimg"><img src="img/product-black-natto.png" alt="오롯농장 검정약콩낫또" loading="lazy" /></div><h3>오롯농장 검정약콩낫또</h3><div class="pcat">Natto</div></div>
-<div class="prodcard rv"><div class="pimg"><img src="img/product-yellow-natto.png" alt="오롯농장 노랑약콩낫또" loading="lazy" /></div><h3>오롯농장 노랑약콩낫또</h3><div class="pcat">Natto</div></div>
+<div class="prodcard rv clickable" role="button" tabindex="0" aria-label="검정약콩낫또 상세페이지 열기" onclick="openDetail('black')" onkeydown="if(event.key==='Enter')openDetail('black')"><div class="pimg"><img src="img/product-black-natto.png" alt="오롯농장 검정약콩낫또" loading="lazy" /></div><h3>오롯농장 검정약콩낫또</h3><div class="pcat">Natto</div></div>
+<div class="prodcard rv clickable" role="button" tabindex="0" aria-label="노랑약콩낫또 상세페이지 열기" onclick="openDetail('yellow')" onkeydown="if(event.key==='Enter')openDetail('yellow')"><div class="pimg"><img src="img/product-yellow-natto.png" alt="오롯농장 노랑약콩낫또" loading="lazy" /></div><h3>오롯농장 노랑약콩낫또</h3><div class="pcat">Natto</div></div>
 <div class="prodcard rv"><div class="pimg"><img src="img/natto-02.webp" alt="약콩낫또 선물세트" loading="lazy" /></div><h3>약콩낫또 선물세트</h3><div class="pcat">Gift Set</div></div>
     </div>
     <p class="board-note" style="margin-top:26px">※ 브랜드 제품 구성은 예시이며, 실제 라인업은 준비 중입니다. 브랜드 협업·입점·유통 문의는 <a href="board.html" class="ul" style="font-size:12px">문의하기</a>로 접수해 주세요.</p>
@@ -131,5 +144,29 @@
   </div>
 </footer>
 <script src="assets/js/site.js?v=20260710-3"></script>
+<div class="pdmodal" id="pdmodal" aria-modal="true" role="dialog" aria-label="제품 상세페이지">
+  <button class="pdclose" aria-label="닫기" onclick="closeDetail()">✕</button>
+  <div class="pdscroll" onclick="if(event.target===this)closeDetail()">
+    <div class="pdinner" id="pdinner"></div>
+  </div>
+</div>
+<script>
+  const PD_IMGS = {
+    black: ['img/orot-black-detail-1.jpg', 'img/orot-black-detail-2.jpg'],
+    yellow: ['img/orot-yellow-detail-1.jpg', 'img/orot-yellow-detail-2.jpg']
+  };
+  function openDetail(key){
+    const box = document.getElementById('pdinner');
+    box.innerHTML = PD_IMGS[key].map(src => '<img src="' + src + '" alt="제품 상세페이지" />').join('');
+    document.getElementById('pdmodal').classList.add('open');
+    document.body.classList.add('pdlock');
+    document.querySelector('#pdmodal .pdscroll').scrollTop = 0;
+  }
+  function closeDetail(){
+    document.getElementById('pdmodal').classList.remove('open');
+    document.body.classList.remove('pdlock');
+  }
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeDetail(); });
+</script>
 </body>
 </html>
