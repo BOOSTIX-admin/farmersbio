@@ -843,27 +843,37 @@
   <script>
     (() => {
       const FEED = 'https://feeds.behold.so/7kxAAj6hxOaL6BNQBLme';
-      let idx = 0, n = 0, timer = null;
+      let idx = 0, n = 0, timer = null, animating = false;
+      const track = () => document.getElementById('igtrack');
       const visible = () => window.innerWidth <= 560 ? 2 : (window.innerWidth <= 960 ? 3 : 6);
-      const maxIdx = () => Math.max(0, n - visible());
-      function render(){
-        document.getElementById('igtrack').style.transform = 'translateX(' + (-idx * 100 / visible()) + '%)';
+      function setX(noAnim){
+        const t = track();
+        if(noAnim) t.style.transition = 'none';
+        t.style.transform = 'translateX(' + (-idx * 100 / visible()) + '%)';
+        if(noAnim){ t.offsetHeight; t.style.transition = ''; }
       }
-      function restart(){
-        clearInterval(timer);
-        if(maxIdx() === 0) return;
-        timer = setInterval(() => { idx = idx >= maxIdx() ? 0 : idx + 1; render(); }, 4000);
+      function step(dir){
+        if(!n || animating) return;
+        animating = true;
+        if(dir > 0){
+          idx += 1; setX();
+          setTimeout(() => { if(idx >= n){ idx = 0; setX(true); } animating = false; }, 580);
+        } else {
+          if(idx <= 0){ idx = n; setX(true); }
+          idx -= 1; setX();
+          setTimeout(() => { animating = false; }, 580);
+        }
       }
-      window.igGo = (step) => {
-        const m = maxIdx(); if(!m) return;
-        idx = (idx + step + m + 1) % (m + 1);
-        render(); restart();
-      };
+      function restart(){ clearInterval(timer); timer = setInterval(() => step(1), 4000); }
+      window.igGo = (d) => { step(d); restart(); };
       fetch(FEED).then(r => r.json()).then(d => {
         const posts = (d.posts || []).slice(0, 12);
         n = posts.length;
         if(!n){ document.getElementById('igslider').style.display = 'none'; return; }
-        document.getElementById('igtrack').innerHTML = posts.map(p => {
+        const reps = Math.max(2, Math.ceil(12 / n));
+        let doubled = [];
+        for(let i = 0; i < reps; i++) doubled = doubled.concat(posts);
+        track().innerHTML = doubled.map(p => {
           const img = (p.sizes && ((p.sizes.large && p.sizes.large.mediaUrl) || (p.sizes.medium && p.sizes.medium.mediaUrl))) || p.thumbnailUrl || p.mediaUrl;
           const vid = (p.mediaType === 'VIDEO' || p.isReel) ? '<span class="igvid">▶</span>' : '';
           return '<a class="igslide" href="' + p.permalink + '" target="_blank" rel="noopener"><img src="' + img + '" alt="파머스바이오 인스타그램 게시물" loading="lazy" />' + vid + '</a>';
@@ -873,9 +883,9 @@
         sl.addEventListener('mouseleave', restart);
         let sx = 0;
         sl.addEventListener('touchstart', e => { sx = e.touches[0].clientX; clearInterval(timer); }, {passive:true});
-        sl.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - sx; if(Math.abs(dx) > 40) igGo(dx < 0 ? 1 : -1); else restart(); }, {passive:true});
-        window.addEventListener('resize', () => { if(idx > maxIdx()) idx = maxIdx(); render(); });
-        render(); restart();
+        sl.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - sx; if(Math.abs(dx) > 40) step(dx < 0 ? 1 : -1); restart(); }, {passive:true});
+        window.addEventListener('resize', () => setX(true));
+        setX(true); restart();
       }).catch(() => { document.getElementById('igslider').style.display = 'none'; });
     })();
   </script>
