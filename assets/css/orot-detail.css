@@ -12,7 +12,8 @@
 .odhero .ov {
   position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end;
   padding: clamp(20px, 4.6cqw, 40px);
-  background: linear-gradient(180deg, rgba(20,15,12,.34) 0%, rgba(20,15,12,.03) 34%, rgba(20,15,12,.10) 56%, rgba(20,15,12,.74) 100%);
+  /* 히어로 영상이 밝은 시식 컷이라 중단부까지 충분히 눌러줘야 흰 글씨가 읽힌다 */
+  background: linear-gradient(180deg, rgba(20,15,12,.46) 0%, rgba(20,15,12,.22) 26%, rgba(20,15,12,.40) 52%, rgba(20,15,12,.68) 76%, rgba(20,15,12,.84) 100%);
 }
 .odhero .bd {
   position: absolute; top: clamp(18px, 4cqw, 34px); left: clamp(20px, 4.6cqw, 40px);
