@@ -1,0 +1,282 @@
+/* ==========================================================================
+   오롯농장 약콩낫또 상세페이지
+   Figma "약콩낫또 상세페이지" (node 55:12) Dev Mode 토큰 기준 구현
+   - 타이포: Noto Serif KR (제목) / Pretendard Variable (본문)
+   - 기준 폭 860px. 그보다 좁아지면 컨테이너 쿼리로 비례 축소되고,
+     작은 글자만 모바일에서 가독성 하한을 적용한다.
+   ========================================================================== */
+
+.odoc {
+  /* --- Figma 색상 토큰 --- */
+  --ivory: #FFFDF8;              /* color/grey/99   섹션 배경 */
+  --alt: #FBF7EF;                /* color/grey/96-2 교차 섹션 배경 */
+  --card: #F5F0E6;               /* color/grey/93-3 카드 */
+  --brown: #332824;              /* color/orange/17 제목 */
+  --body: #5A4E46;               /* color/orange/31 본문 */
+  --muted: #7D766E;              /* color/grey/46-3 보조 */
+  --gold: #8A6811;               /* color/orange/30 강조 */
+  --yellow: #EFC64A;             /* color/yellow/61 포인트 */
+  --line: rgba(51, 40, 36, .12); /* color/orange/17-12% */
+  --shadow: 0 30px 60px -46px rgba(51, 40, 36, .5);
+
+  --serif: "Noto Serif KR", "MaruBuri", serif;
+  --sans: "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", system-ui, sans-serif;
+
+  /* 860px에서 31px = Figma 원본 배율 1.0 */
+  container-type: inline-size;
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--ivory);
+  font-family: var(--sans);
+  font-size: clamp(15px, 3.605cqi, 31px);
+  color: var(--brown);
+  line-height: 1.75;
+  letter-spacing: -.015em;
+  word-break: keep-all;
+}
+
+.odoc *, .odoc *::before, .odoc *::after { box-sizing: border-box; }
+.odoc p, .odoc h1, .odoc h2, .odoc h3, .odoc dl, .odoc dd, .odoc dt, .odoc figure { margin: 0; }
+.odoc img { display: block; max-width: 100%; height: auto; }
+
+/* --- 섹션 --------------------------------------------------------------- */
+.odoc .sec { padding: 3.42em 1.42em 3.42em; background: var(--ivory); }  /* 106/31, 44/31 */
+.odoc .sec.alt { background: var(--alt); }
+.odoc .inner { max-width: 772px; margin: 0 auto; }
+
+.odoc .eyebrow {
+  display: flex; align-items: center; gap: .355em;
+  font-size: .548em;               /* 17px */
+  line-height: 1.75;
+  font-weight: 700;
+  letter-spacing: .16em;           /* 2.72px */
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.odoc .eyebrow::before { content: ""; width: 1.53em; height: .147em; background: var(--yellow); flex: none; }
+
+.odoc h2.head {
+  margin-top: .42em;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 1.548em;              /* 48px */
+  line-height: 1.34;               /* 64.32px */
+  letter-spacing: -.035em;         /* -1.68px */
+  color: var(--brown);
+}
+.odoc .lead {
+  margin-top: .6em;
+  font-size: .968em;               /* 30px */
+  line-height: 1.72;               /* 51.6px */
+  letter-spacing: -.0155em;
+  color: var(--body);
+}
+.odoc .cap { margin-top: .71em; font-size: .710em; line-height: 1.62; color: var(--muted); }
+.odoc .cap.mid { text-align: center; }
+
+/* --- 카드 --------------------------------------------------------------- */
+.odoc .bigcard {
+  margin-top: 1.23em;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 1.097em;          /* 34px */
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.odoc .bigcard > img, .odoc .bigcard > .odv { border-radius: inherit; }
+
+.odoc .plainfig { margin-top: 1.23em; border-radius: .71em; overflow: hidden; }
+
+/* --- 영상 --------------------------------------------------------------- */
+.odoc .odv { position: relative; background: #EFE9DF; overflow: hidden; }
+.odoc .odv video { display: block; width: 100%; height: auto; }
+.odoc .odv figcaption {
+  position: absolute; left: .58em; bottom: .48em; z-index: 2;
+  font-size: .52em; line-height: 1.4; color: #fff;
+  background: rgba(28, 24, 20, .48);
+  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  padding: .42em .9em; border-radius: 100px; letter-spacing: -.01em;
+}
+
+/* --- 제품 요약 (01 PRODUCT) --------------------------------------------- */
+.odoc .keyrows { margin-top: .32em; }
+.odoc .keyrow {
+  display: flex; align-items: center; gap: .77em;
+  padding: .84em .13em;
+  border-bottom: 1px solid var(--line);
+}
+.odoc .keyrow:first-child { border-top: 1px solid var(--line); }
+.odoc .keyrow .kn {
+  flex: 0 0 1.29em;
+  font-family: var(--serif); font-weight: 700;
+  font-size: .806em;               /* 25px */
+  color: var(--gold);
+}
+.odoc .keyrow .kt { flex: 1; }
+.odoc .keyrow .kt b {
+  display: block;
+  font-family: var(--serif); font-weight: 600;
+  font-size: 1.032em;              /* 32px */
+  line-height: 1.225;
+  letter-spacing: -.015em;
+}
+.odoc .keyrow .kt span {
+  display: block; margin-top: .18em;
+  font-size: .548em;               /* 17px */
+  font-weight: 500; letter-spacing: .04em;
+  color: var(--muted); text-transform: uppercase;
+}
+.odoc .keyrow .kv {
+  margin-left: auto; text-align: right; white-space: nowrap;
+  font-family: var(--serif); font-weight: 700;
+  font-size: 1.097em;              /* 34px */
+  line-height: 1.2; letter-spacing: -.015em;
+}
+.odoc .keyrow .kv u { text-decoration: none; font-family: var(--sans); font-weight: 500; font-size: .59em; color: var(--muted); margin-left: .12em; }
+
+/* --- Q&A (02 TASTE) ----------------------------------------------------- */
+.odoc .qa { margin-top: 1.1em; display: grid; gap: .45em; }
+.odoc .qa-i { background: var(--card); border: 1px solid var(--line); border-radius: .71em; padding: .97em 1.1em; }
+.odoc .qa-i .q { font-family: var(--serif); font-weight: 700; font-size: .871em; line-height: 1.5; }
+.odoc .qa-i .q::before { content: "Q. "; color: var(--gold); }
+.odoc .qa-i .a { margin-top: .35em; font-size: .774em; line-height: 1.6; color: var(--body); }
+
+/* --- 발효 (04 FERMENTATION) -------------------------------------------- */
+.odoc .tags { margin-top: .58em; display: flex; flex-wrap: wrap; gap: .35em; }
+.odoc .tags span {
+  font-size: .613em; font-weight: 600; color: #8A6D12;
+  background: rgba(239, 198, 74, .2); border: 1px solid rgba(239, 198, 74, .5);
+  border-radius: 100px; padding: .3em .65em;
+}
+.odoc .straincard { margin-top: .52em; background: var(--card); border: 1px solid var(--line); border-radius: .84em; padding: 1.16em 1.1em; }
+.odoc .straincard .sc-sub { font-size: .645em; color: var(--body); }
+.odoc .straincard .sc-name { font-family: var(--serif); font-weight: 700; font-size: 1.097em; line-height: 1.2; margin: .1em 0 .12em; letter-spacing: -.01em; }
+.odoc .straincard .sc-name i { font-style: italic; }
+.odoc .straincard .sc-patent { font-size: .645em; color: var(--gold); font-weight: 600; }
+.odoc .straincard .sc-desc { margin-top: .45em; padding-top: .45em; border-top: 1px solid var(--line); font-size: .613em; line-height: 1.6; color: var(--body); }
+
+/* --- 시설 (05 INGREDIENT & PROCESS) ------------------------------------ */
+.odoc .block { margin-top: 2.5em; }
+.odoc .block .blabel { font-family: var(--serif); font-size: .645em; font-weight: 700; letter-spacing: .06em; color: var(--gold); }
+.odoc .block h3 { margin-top: .3em; font-family: var(--serif); font-weight: 700; font-size: 1.226em; line-height: 1.36; letter-spacing: -.025em; }
+.odoc .block .bbody { margin-top: .7em; font-size: .903em; line-height: 1.72; color: var(--body); }
+.odoc .facgrid { margin-top: .84em; display: grid; grid-template-columns: 1fr 1fr; gap: .45em; }
+.odoc .facgrid > div { background: var(--ivory); border: 1px solid var(--line); border-radius: .58em; padding: .71em .77em; }
+.odoc .facgrid b { display: block; font-family: var(--serif); font-weight: 600; font-size: .742em; }
+.odoc .facgrid span { font-size: .677em; color: var(--muted); }
+
+/* 발효 품질 관리 프로세스 */
+.odoc .qproc { margin-top: 1.1em; background: var(--alt); border: 1px solid var(--line); border-radius: .84em; padding: 1.6em .97em 1.48em; }
+.odoc .qp-head { text-align: center; margin-bottom: 1.42em; }
+.odoc .qp-title { font-family: var(--serif); font-weight: 700; font-size: 1.226em; letter-spacing: -.02em; }
+.odoc .qp-sub { margin-top: .42em; font-size: .484em; letter-spacing: .24em; color: #B0A180; font-weight: 600; }
+.odoc .qp-steps { display: flex; align-items: flex-start; justify-content: center; gap: .06em; }
+.odoc .qp-step { flex: 1 1 0; max-width: 4.84em; text-align: center; }
+.odoc .qp-num { font-family: var(--serif); font-size: .742em; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: .6em; }
+.odoc .qp-circle { width: 3.55em; height: 3.55em; margin: 0 auto; border-radius: 50%; border: 1px solid #DCCDAB; background: var(--ivory); display: flex; align-items: center; justify-content: center; }
+.odoc .qp-circle img { width: 2.13em; height: 2.13em; object-fit: contain; }
+.odoc .qp-t { margin-top: .65em; font-family: var(--serif); font-weight: 700; font-size: .742em; }
+.odoc .qp-d { margin-top: .42em; font-size: .516em; line-height: 1.5; color: var(--muted); }
+.odoc .qp-ar { flex: none; align-self: flex-start; margin-top: 2.58em; color: #CDBD98; font-size: .71em; }
+.odoc .qp-foot { margin-top: 1.35em; padding-top: 1.03em; border-top: 1px solid var(--line); text-align: center; font-size: .677em; line-height: 1.6; color: var(--body); }
+
+/* --- 먹는 법 (06 HOW TO EAT) ------------------------------------------- */
+.odoc .eatsteps { margin-top: .48em; display: grid; gap: .52em; }
+.odoc .estep {
+  display: grid; grid-template-columns: 2.06em 1fr 4.39em; gap: .77em; align-items: center;
+  background: var(--card); border: 1px solid var(--line); border-radius: .71em;
+  padding: .87em 1em;
+}
+.odoc .estep .en { font-family: var(--serif); font-weight: 700; font-size: 1.484em; line-height: 1; color: var(--gold); text-align: center; }
+.odoc .estep .et { font-size: .806em; line-height: 1.55; }
+.odoc .estep .et b { font-weight: 600; }
+.odoc .estep .ei { width: 4.39em; height: 4.39em; border-radius: .52em; background: var(--ivory) center/cover no-repeat; }
+.odoc .eatnote { margin-top: 1.16em; text-align: center; font-family: var(--serif); font-weight: 600; font-size: .968em; line-height: 1.75; }
+
+.odoc .storebox { margin-top: 1.16em; background: var(--card); border: 1px solid var(--line); border-radius: .71em; padding: 1.54em 1.13em 1.06em; }
+.odoc .storebox .sb-h { font-family: var(--serif); font-weight: 700; font-size: .839em; line-height: 1.75; padding-bottom: .65em; }
+.odoc .storebox .sb-i { display: flex; gap: .48em; align-items: flex-start; padding: .42em 0; border-top: 1px solid var(--line); }
+.odoc .storebox .sb-n {
+  flex: none; width: .968em; height: .968em; margin-top: .32em; border-radius: 50%;
+  background: var(--gold); color: #fff; font-family: var(--serif); font-weight: 700;
+  font-size: .548em; display: flex; align-items: center; justify-content: center;
+}
+.odoc .storebox .sb-t { font-size: .774em; line-height: 1.6; color: var(--body); }
+.odoc .storebox .sb-t b { color: var(--gold); font-weight: 600; }
+
+/* --- 인증 (07 CERTIFICATIONS) ------------------------------------------ */
+.odoc .certrow { margin-top: 1.16em; display: flex; flex-wrap: wrap; gap: .39em; }
+.odoc .certrow .cc { font-size: .742em; font-weight: 600; color: var(--body); background: var(--ivory); border: 1px solid var(--line); border-radius: 100px; padding: .42em .84em; }
+.odoc .certrow .cc b { margin-left: .28em; font-family: var(--serif); font-size: .78em; color: var(--gold); }
+.odoc .awards { margin-top: .52em; font-size: .710em; line-height: 1.65; color: var(--body); }
+.odoc .awards b { font-family: var(--serif); color: var(--gold); margin-right: .26em; }
+.odoc .certgrid { margin-top: .84em; display: grid; grid-template-columns: repeat(3, 1fr); gap: .52em; }
+.odoc .ccard { background: var(--ivory); border: 1px solid var(--line); border-radius: .52em; padding: .52em .52em .65em; }
+.odoc .ccard .ci { aspect-ratio: 3/4; background: #fff; border: 1px solid var(--line); border-radius: .26em; overflow: hidden; }
+.odoc .ccard .ci img { width: 100%; height: 100%; object-fit: contain; }
+.odoc .ccard .cl { margin-top: .48em; font-family: var(--serif); font-weight: 700; font-size: .677em; line-height: 1.3; }
+.odoc .ccard .cd { margin-top: .16em; font-size: .548em; color: var(--muted); }
+
+/* --- 옵션 (08 OPTIONS & INFO) ------------------------------------------ */
+.odoc .opts { margin-top: .65em; display: grid; gap: .58em; }
+.odoc .opt { display: flex; gap: .9em; align-items: center; background: var(--card); border: 1px solid var(--line); border-radius: .77em; padding: .97em 1.03em; }
+.odoc .opt.feat { border-color: rgba(239, 198, 74, .85); background: linear-gradient(180deg, #FFFDF6, #F8F1DF); }
+.odoc .opt .oi { flex: none; width: 4.26em; height: 4.26em; border-radius: .58em; background: var(--ivory) center/cover no-repeat; }
+.odoc .opt .oc { flex: 1; }
+.odoc .opt .obadge { display: inline-block; margin-bottom: .32em; font-size: .516em; font-weight: 700; letter-spacing: .03em; color: #8A6D12; background: rgba(239, 198, 74, .3); padding: .26em .55em; border-radius: .3em; }
+.odoc .opt .on { font-family: var(--serif); font-weight: 600; font-size: .968em; }
+.odoc .opt .orec { margin-top: .2em; font-size: .710em; color: var(--muted); }
+.odoc .opt .ospec { margin-top: .35em; font-size: .774em; color: var(--body); }
+
+.odoc .unitbox { margin-top: .77em; background: var(--card); border: 1px solid var(--line); border-radius: .84em; padding: 1.23em 1.03em; }
+.odoc .ub-h { text-align: center; font-family: var(--serif); font-weight: 700; font-size: .839em; margin-bottom: .77em; }
+.odoc .ub-row { display: flex; align-items: stretch; justify-content: center; gap: .39em; flex-wrap: wrap; }
+.odoc .ub-cell { flex: 1 1 0; min-width: 5.55em; text-align: center; background: var(--ivory); border: 1px solid var(--line); border-radius: .58em; padding: .77em .71em; display: flex; flex-direction: column; justify-content: center; }
+.odoc .ub-cell.hl { border-color: rgba(239, 198, 74, .85); background: #FFFDF6; }
+.odoc .ub-n { font-family: var(--serif); font-weight: 700; font-size: 1.032em; color: var(--gold); }
+.odoc .ub-cell.hl .ub-n { color: #6B5A22; }
+.odoc .ub-d { margin-top: .32em; font-size: .645em; line-height: 1.5; color: var(--body); }
+.odoc .ub-x { align-self: center; font-size: .968em; color: #D8C5AA; font-weight: 700; }
+.odoc .ub-note { margin-top: .77em; text-align: center; font-size: .677em; line-height: 1.62; color: var(--muted); }
+.odoc .ub-note b { color: var(--body); font-weight: 600; }
+
+.odoc .buyinfo { margin-top: 1.16em; display: grid; grid-template-columns: 1fr 1fr; gap: 0 1.16em; }
+.odoc .buyinfo .bi { display: flex; gap: .58em; padding: .58em 0; border-top: 1px solid var(--line); font-size: .774em; line-height: 1.5; }
+.odoc .buyinfo .bi b { flex: 0 0 3.1em; font-family: var(--serif); font-weight: 700; color: var(--gold); }
+
+/* --- 표시사항 ----------------------------------------------------------- */
+.odoc .spec { background: #241B17; color: #CABFB2; padding: 1.68em 1.42em 2.7em; font-size: .774em; line-height: 1.85; }
+.odoc .spec .swrap { max-width: 772px; margin: 0 auto; }
+.odoc .spec .srow { display: flex; gap: .52em; padding: .48em 0; border-top: 1px solid rgba(255, 255, 255, .14); }
+.odoc .spec .srow b { flex: 0 0 5.3em; color: #EFE6DB; font-weight: 600; }
+.odoc .spec .disc { margin-top: .9em; font-size: .95em; color: #A89E92; line-height: 1.7; }
+
+/* --- 좁은 화면: 비례 축소 + 작은 글자 가독성 하한 ----------------------- */
+@container (max-width: 700px) {
+  .odoc .sec { padding: 2.6em 1.1em; }
+  .odoc .facgrid { grid-template-columns: 1fr; }
+  .odoc .certgrid { grid-template-columns: 1fr; }
+  .odoc .ccard .ci { aspect-ratio: 16/10; }
+  .odoc .estep { grid-template-columns: 1.7em 1fr; gap: .5em .7em; }
+  .odoc .estep .ei { grid-column: 1/-1; width: 100%; height: 7em; }
+  .odoc .opt { flex-direction: column; align-items: flex-start; }
+  .odoc .opt .oi { width: 100%; height: 8em; }
+  .odoc .buyinfo { grid-template-columns: 1fr; gap: 0; }
+  .odoc .ub-row { flex-direction: column; }
+  .odoc .ub-x { transform: rotate(90deg); }
+  .odoc .qp-steps { flex-wrap: wrap; gap: 1.2em 0; }
+  .odoc .qp-step { flex: 0 0 33.33%; max-width: none; }
+  .odoc .qp-ar { display: none; }
+  .odoc .spec .srow { flex-direction: column; gap: .1em; }
+  .odoc .spec .srow b { flex: none; }
+}
+@media (max-width: 680px) {
+  /* 비례 축소만 하면 너무 작아지는 소형 텍스트에 하한을 준다 */
+  .odoc .eyebrow { font-size: max(.548em, 11px); }
+  .odoc .keyrow .kt span { font-size: max(.548em, 10px); }
+  .odoc .qp-d { font-size: max(.516em, 10px); }
+  .odoc .qp-sub { font-size: max(.484em, 9px); letter-spacing: .18em; }
+  .odoc .ccard .cd { font-size: max(.548em, 10px); }
+  .odoc .odv figcaption { font-size: max(.52em, 10px); }
+  .odoc .opt .obadge { font-size: max(.516em, 10px); }
+}
