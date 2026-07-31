@@ -6,6 +6,27 @@
      작은 글자만 모바일에서 가독성 하한을 적용한다.
    ========================================================================== */
 
+/* --- 히어로 (본문과 같은 폭, 단독페이지·모달 공용) ---------------------- */
+.odhero { container-type: inline-size; max-width: 860px; margin: 0 auto; position: relative; background: #0F0C0B; overflow: hidden; }
+.odhero video { display: block; width: 100%; height: auto; }
+.odhero .ov {
+  position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end;
+  padding: clamp(20px, 4.6cqw, 40px);
+  background: linear-gradient(180deg, rgba(20,15,12,.34) 0%, rgba(20,15,12,.03) 34%, rgba(20,15,12,.10) 56%, rgba(20,15,12,.74) 100%);
+}
+.odhero .bd {
+  position: absolute; top: clamp(18px, 4cqw, 34px); left: clamp(20px, 4.6cqw, 40px);
+  font-family: "Noto Serif KR", serif; font-weight: 600; color: #fff;
+  font-size: clamp(15px, 2.8cqw, 24px); letter-spacing: .03em; text-shadow: 0 1px 12px rgba(0,0,0,.45);
+}
+.odhero h2 {
+  margin: 0; font-family: "Noto Serif KR", serif; font-weight: 700; color: #fff; letter-spacing: -.035em;
+  font-size: clamp(23px, 5.1cqw, 44px); line-height: 1.32; text-shadow: 0 2px 24px rgba(0,0,0,.5);
+}
+.odhero .hs { margin: clamp(10px, 1.9cqw, 18px) 0 0; color: #F2ECE2; font-size: clamp(12px, 2.3cqw, 20px); line-height: 1.65; text-shadow: 0 1px 10px rgba(0,0,0,.45); }
+.odhero .bg { margin-top: clamp(12px, 2.6cqw, 24px); display: flex; flex-wrap: wrap; gap: clamp(5px, 1cqw, 9px); }
+.odhero .bg span { font-size: clamp(9.5px, 1.7cqw, 15px); color: #fff; border: 1px solid rgba(255,255,255,.55); padding: clamp(4px,.8cqw,8px) clamp(8px,1.7cqw,16px); border-radius: 100px; }
+
 .odoc {
   /* --- Figma 색상 토큰 --- */
   --ivory: #FFFDF8;              /* color/grey/99   섹션 배경 */
@@ -280,3 +301,6 @@
   .odoc .odv figcaption { font-size: max(.52em, 10px); }
   .odoc .opt .obadge { font-size: max(.516em, 10px); }
 }
+
+/* --- 스크린리더 전용 (모달에서는 시각적 제목이 필요 없다) ---------------- */
+.sr-only{position:absolute!important;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0}
