@@ -308,10 +308,11 @@
   .awrow{padding:14px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
   .awrow b{color:var(--ink);font-weight:700}
   .dl{display:flex;flex-direction:column;gap:12px;margin-top:4px}
-  .dlrow{display:flex;align-items:center;justify-content:space-between;width:100%;padding:18px 22px;border:1px solid var(--line);border-radius:8px;transition:.2s;cursor:pointer;background:#fff;color:var(--ink);font-family:var(--sans);text-align:left}
+  .dlrow{display:flex;align-items:center;justify-content:space-between;width:100%;padding:18px 22px;border:1px solid var(--line);border-radius:8px;transition:.2s;cursor:pointer;background:#fff;color:var(--ink);font-family:var(--sans);text-align:left;text-decoration:none;box-sizing:border-box}
   .dlrow:hover{border-color:var(--ink);background:var(--parchment)}
   .dlrow b{font-size:15px;font-weight:700}
   .dlrow span{font-size:12.5px;color:var(--muted-2);letter-spacing:.1em;text-transform:uppercase}
+  a.dlrow:hover span{color:var(--ink)}
 
   /* CONTACT FORM */
   .contact{background:var(--parchment-2);padding:120px 0}
@@ -805,7 +806,7 @@
       <p class="eyebrow">Technical Documents</p>
       <h2>기술자료 다운로드</h2>
       <div class="dl">
-        <button class="dlrow" type="button" onclick="reqDoc('회사소개서')"><b>회사소개서 (PDF)</b><span>Download</span></button>
+        <a class="dlrow" href="assets/docs/farmersbio-company-profile.pdf" download="파머스바이오_회사소개서.pdf" type="application/pdf"><b>회사소개서 (PDF)</b><span>Download</span></a>
         <button class="dlrow" type="button" onclick="reqDoc('원료 스펙시트')"><b>원료 스펙시트</b><span>Request</span></button>
         <button class="dlrow" type="button" onclick="reqDoc('시험성적서')"><b>시험성적서·인증서</b><span>Request</span></button>
       </div>
