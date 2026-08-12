@@ -1,0 +1,730 @@
+/* =========================================================
+   파머스바이오 — Fermented Soy Bio Base 상세페이지 전용 스타일
+   site.css 의 디자인 토큰(--dark #14162C / --red #E60012 / Pretendard·Fraunces)을
+   그대로 상속받아 사용합니다. site.css 를 먼저 로드해야 합니다.
+   ========================================================= */
+
+/* ---------- 공통: 회색 자리표시자 --------------------------------
+   실제 사진이 준비되면 .ph 를 <img> 로 교체하면 됩니다.
+   data-ph 속성의 문구가 자리표시자 안내 텍스트로 표시됩니다.       */
+.ph{
+  position:relative;display:flex;align-items:center;justify-content:center;
+  width:100%;height:100%;min-height:120px;
+  background:
+    repeating-linear-gradient(45deg,#E9E6DE 0 10px,#EFEDE6 10px 20px);
+  border:1px dashed #CFCABC;border-radius:12px;
+  color:#8C8677;text-align:center;padding:18px;
+}
+.ph::after{
+  content:attr(data-ph);
+  font-size:12.5px;font-weight:600;letter-spacing:.01em;line-height:1.5;
+  white-space:pre-line;
+}
+.ph.circle{border-radius:50%}
+.ph.flat{border-radius:0}
+
+/* 미확정 값 표기 — 실제 규격 확인 후 텍스트만 교체하고 class="tbd" 를 지우면 됩니다 */
+.tbd{color:var(--muted-2)!important;font-weight:500!important}
+
+/* ---------- 아이콘 ---------- */
+.ic{width:34px;height:34px;stroke:currentColor;fill:none;
+    stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;display:block}
+.ic.lg{width:44px;height:44px}
+.ic.sm{width:26px;height:26px}
+/* 픽토그램 PNG (img/web/ico/)
+   각 에셋은 본체(코어)가 캔버스 정중앙에 오도록 제작됨.
+   표시 크기는 아이콘별 .pic--* 클래스로 지정해 본체 시각 크기를 통일
+   (특징 카드 코어 48px · 공정 원 코어 44px 기준) */
+.pic{display:block;object-fit:contain}
+.feat .picwrap{height:106px;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.pic--feat-soy{width:64px;height:64px}
+.pic--feat-strain{width:96px;height:96px}
+.pic--feat-form{width:92px;height:92px}
+.pic--feat-spec{width:103px;height:103px}
+.pic--flow-bean{width:79px;height:79px}
+.pic--flow-ferment{width:65px;height:65px}
+.pic--flow-process{width:68px;height:68px}
+.pic--flow-form{width:83px;height:83px}
+.pic--flow-apply{width:86px;height:86px}
+
+/* =========================================================
+   1. HERO — 에디토리얼 위계 (영문 타이틀 / 한글 핵심 메시지 / 요약문)
+   ========================================================= */
+.sbhero{background:var(--parchment);padding:128px 0 0;overflow:hidden}
+.sbhero .inner{display:grid;grid-template-columns:1fr 1.06fr;gap:72px;align-items:center;min-height:620px}
+.sbhero .copy{padding:40px 0 76px}
+.sbhero .eyebrow{display:block;margin-bottom:20px}
+.sbhero h1{
+  font-family:var(--en);font-weight:300;letter-spacing:-.022em;line-height:1.04;
+  font-size:clamp(31px,4.2vw,58px);text-transform:uppercase;color:var(--ink);
+}
+/* 한글 핵심 메시지 — 영문 타이틀에 묻히지 않도록 위계 상향 */
+.sbhero .kr{
+  margin-top:26px;font-size:clamp(19px,2vw,25px);font-weight:800;
+  letter-spacing:-.04em;line-height:1.45;color:var(--ink);
+}
+.sbhero .lead{
+  margin-top:22px;padding-top:20px;border-top:1px solid var(--line);
+  font-size:15.5px;color:var(--muted);max-width:400px;line-height:1.75;
+}
+.sbhero .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+/* CTA — 이벤트 배너처럼 튀지 않는 절제된 차콜. 레드는 액센트로만 사용 */
+.btn.solid{background:var(--ink);color:#fff;border:1px solid var(--ink);letter-spacing:.1em}
+.btn.solid:hover{background:var(--dark);border-color:var(--dark)}
+.btn.line{background:transparent;color:var(--ink);border:1px solid var(--line);letter-spacing:.1em}
+.btn.line:hover{background:transparent;color:var(--ink);border-color:var(--ink)}
+/* 우측 비주얼 — 화면 오른쪽 끝까지 흘려 브랜드 메인 컷처럼 */
+.sbhero .visual{
+  align-self:stretch;display:flex;align-items:stretch;
+  margin-right:calc((var(--wrap) - 100vw) / 2 - 40px);
+}
+.sbhero .visual .ph{min-height:600px;border-radius:0;border-bottom:0}
+.sbhero .visual img{display:block;width:100%;height:100%;min-height:600px;object-fit:cover;border-radius:0}
+
+/* ---------- 1-b. 스펙 스트립 (박스·아이콘 없이 타이포와 선으로만) ---------- */
+.specbar{background:var(--parchment);padding:64px 0 96px}
+.specbar .inner{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:transparent;border:0;border-top:1px solid var(--ink);
+  border-radius:0;box-shadow:none;overflow:visible;
+}
+.specbar .cell{
+  display:block;padding:26px 30px 0;border-left:1px solid var(--line);
+}
+.specbar .cell:first-child{border-left:0;padding-left:0}
+.specbar .k{
+  display:block;font-family:var(--en);font-weight:400;font-size:11px;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--muted-2);
+}
+.specbar .v{
+  display:block;font-size:17.5px;font-weight:800;letter-spacing:-.035em;
+  margin-top:16px;color:var(--ink);
+}
+.specbar .en{
+  display:block;font-family:var(--en);font-weight:400;font-size:12.5px;letter-spacing:.01em;
+  color:var(--muted);margin-top:8px;line-height:1.5;
+}
+
+@media(max-width:1320px) and (min-width:961px){
+  .sbhero .visual{margin-right:-40px}
+}
+
+/* =========================================================
+   2. 특징 카드
+   ========================================================= */
+.featgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.feat{
+  background:#fff;border:1px solid var(--line-2);border-radius:12px;
+  padding:34px 28px 32px;text-align:center;transition:.22s;
+}
+.feat:hover{box-shadow:0 16px 34px rgba(20,22,44,.08);transform:translateY(-3px);border-color:var(--line)}
+.feat .num{display:block;font-family:var(--en);font-weight:400;font-size:15px;color:var(--red);letter-spacing:.06em;margin-bottom:14px}
+.feat .ic{margin:0 auto 18px;color:var(--ink)}
+.feat h3{font-size:17px;font-weight:800;letter-spacing:-.025em;margin-bottom:10px}
+.feat h3.en-sm{font-family:var(--en);font-weight:400;font-size:18px;letter-spacing:-.01em}
+.feat p{font-size:14.5px;color:var(--muted);line-height:1.65}
+
+/* 균주 선택 — 제공 이미지를 활용한 연구형 에디토리얼 스트립 */
+.strain-spot{
+  display:grid;grid-template-columns:.82fr 1.18fr;align-items:stretch;
+  margin-top:58px;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)
+}
+.strain-copy{padding:38px 42px 38px 0;border-right:1px solid var(--line)}
+.strain-copy .eyebrow{display:block;margin-bottom:14px}
+.strain-copy h3{font-size:clamp(27px,3vw,38px);font-weight:800;letter-spacing:-.045em;line-height:1.22}
+.strain-copy h3 em{font-style:normal;color:var(--red)}
+.strain-copy>p{font-size:15px;color:var(--muted);line-height:1.8;margin-top:18px;max-width:430px}
+.strain-copy>p b{color:var(--ink);font-family:var(--en);font-weight:500;letter-spacing:.01em}
+.strain-meta{display:grid;grid-template-columns:1fr 1fr;margin-top:28px;border-top:1px solid var(--line)}
+.strain-meta div{padding:16px 18px 0;border-left:1px solid var(--line-2)}
+.strain-meta div:first-child{padding-left:0;border-left:0}
+.strain-meta dt{font-family:var(--en);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.strain-meta dd{font-size:13.5px;font-weight:700;color:var(--ink);margin-top:8px}
+.strain-media{position:relative;min-width:0;padding:38px 0 38px 34px}
+/* 영상은 absolute 로 띄워 행 높이를 좌측 카피가 결정하게 둡니다
+   → 상단은 SELECTED STRAIN, 하단은 마지막 메타 줄에 정렬 */
+.strain-media img,.strain-media video{
+  position:absolute;top:38px;left:34px;
+  width:calc(100% - 34px);height:calc(100% - 76px);
+  display:block;object-fit:cover;background:var(--parchment);border-radius:14px
+}
+
+/* =========================================================
+   3. 대두 발효 공정 — 에디토리얼 컬럼 아카이브
+   · 카드/박스 없이 얇은 세로 디바이더만으로 구조를 만든다
+   · 헤드 클릭 → 해당 컬럼 확장 + 설명·대형 이미지, 재생 시 영상 삽입
+   · 영상 연결: HTML .pc-shot[data-video] 에 mp4 경로
+   ========================================================= */
+.procsec{padding:112px 0 104px}
+
+/* 헤더 — 좌 타이틀 / 우 리드·카운터, 하단 기준선 */
+.proc-head{
+  display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;
+  padding-bottom:34px;
+}
+.proc-head .eyebrow{display:block;margin-bottom:12px}
+.proc-head h2{font-size:clamp(28px,3.6vw,44px);letter-spacing:-.04em;line-height:1}
+.ph-meta{text-align:right;display:flex;align-items:flex-end;gap:44px}
+.ph-meta p{font-size:14px;color:var(--muted);line-height:1.75;text-align:left;max-width:400px}
+.ph-count{font-family:var(--en);font-weight:300;font-size:15px;color:var(--muted-2);white-space:nowrap;letter-spacing:.06em}
+.ph-count b{font-weight:400;font-size:26px;color:var(--ink)}
+.ph-count i{font-style:normal;margin:0 5px;opacity:.5}
+
+/* 컬럼 패널 */
+.proc{display:flex;height:810px;border-bottom:1px solid var(--line)}
+.pcol{
+  flex:1 1 0;min-width:0;min-height:0;overflow:hidden;
+  display:flex;flex-direction:column;position:relative;
+  border-left:1px solid var(--line);
+  transition:flex .6s cubic-bezier(.22,.61,.36,1);
+}
+.pcol:first-child{border-left:0}
+.pcol::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--red);
+  transform:scaleY(0);transform-origin:top;transition:transform .6s cubic-bezier(.22,.61,.36,1);
+}
+.pcol.is-open{flex:2.5 1 0}
+.pcol.is-open::before{transform:scaleY(1)}
+
+.pc-head{
+  display:block;width:100%;text-align:left;background:none;border:0;cursor:pointer;
+  font:inherit;color:inherit;padding:26px 24px 20px;
+}
+/* 컬럼 어디를 눌러도 전환되도록 클릭 영역을 컬럼 전체로 확장 */
+.pc-head::after{content:"";position:absolute;inset:0;z-index:5;cursor:pointer}
+.pcol.is-open .pc-head::after{cursor:default}
+.pcol:not(.is-open) .pc-head:hover .pc-name{color:var(--red)}
+.pc-idx{display:block}
+.pc-idx em{
+  display:block;font-style:normal;font-family:var(--en);font-weight:400;font-size:15px;
+  letter-spacing:.1em;color:var(--ink);line-height:1;transition:color .3s;
+}
+.pc-idx b{
+  display:block;font-family:var(--en);font-weight:400;font-size:11px;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--muted-2);margin-top:7px;line-height:1.2;transition:color .3s;
+}
+.pcol.is-open .pc-idx em,.pcol.is-open .pc-idx b{color:var(--red)}
+.pc-name{display:block;font-size:20px;font-weight:800;letter-spacing:-.035em;margin-top:22px;transition:color .25s}
+.pc-sub{display:block;font-size:13.5px;color:var(--muted-2);margin-top:7px;line-height:1.5}
+
+.pc-body{flex:1;min-height:0;display:flex;flex-direction:column;padding:0 24px 24px}
+.pc-desc{
+  font-size:14.5px;color:var(--muted);line-height:1.8;border-top:1px solid var(--line);
+  max-height:0;opacity:0;overflow:hidden;transition:opacity .4s .12s,max-height .55s,padding .55s;
+}
+.pcol.is-open .pc-desc{max-height:220px;opacity:1;padding-top:18px}
+
+/* 이미지 — 하단 정렬, 남는 높이를 채워 공백 제거 */
+.pc-shot{
+  position:relative;margin:24px 0 0;overflow:hidden;background:var(--parchment-2);
+}
+/* 이미지는 모두 하단 정렬. 닫힌 컬럼은 작게, 열린 컬럼만 크게 */
+.pc-shot{flex:0 0 auto;margin-top:auto}
+.pcol:not(.is-open) .pc-shot{height:250px}
+.pcol.is-open .pc-shot{height:400px}
+.pc-shot img{width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .8s cubic-bezier(.22,.61,.36,1),filter .55s ease}
+/* 닫힌 컬럼은 흑백, 선택하면 컬러로 전환 */
+.pcol:not(.is-open) .pc-shot img{object-position:50% 38%;filter:grayscale(1) brightness(1.03) contrast(1.02)}
+.pcol.is-open .pc-shot img{filter:none}
+.pcol:not(.is-open):hover .pc-shot img{transform:scale(1.04)}
+.pc-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;z-index:1;background:var(--parchment-2)}
+
+.proc-note{font-size:14px;color:var(--muted-2);margin-top:22px;text-align:right}
+
+@media(max-width:960px){
+  .procsec{padding:80px 0 72px}
+  .proc-head{grid-template-columns:1fr;gap:20px;align-items:start;padding-bottom:20px}
+  .ph-meta{text-align:left;flex-direction:row;justify-content:space-between;align-items:flex-end;gap:20px;width:100%}
+  .ph-meta p{font-size:13.5px;max-width:none;flex:1;padding-right:10px}
+  .proc{flex-direction:column;height:auto;min-height:0}
+  .pcol{flex:0 0 auto;border-left:0;border-top:1px solid var(--line);overflow:visible}
+  .pcol:first-child{border-top:0}
+  .pcol.is-open{flex:0 0 auto}
+  .pcol::before{left:0;right:0;top:-1px;bottom:auto;width:auto;height:1.5px;transform:scaleX(0);transform-origin:left}
+  .pcol:first-child::before{top:0}
+  .pcol.is-open::before{transform:scaleX(1)}
+  .pc-head{padding:20px 0 14px}
+  .pc-name{margin-top:10px;font-size:18px}
+  .pc-body{padding:0 0 20px}
+  .pc-shot{flex:0 0 auto;height:auto;aspect-ratio:21/9;min-height:0;margin-top:14px}
+  .pcol:not(.is-open) .pc-shot img{object-position:50% 40%}
+  .pcol.is-open .pc-shot{height:auto;aspect-ratio:16/11;min-height:0;margin-top:30px}
+  .proc-note{text-align:left;margin-top:18px}
+}
+
+/* =========================================================
+   3-B. FERMENTATION INSIGHT — 발효가 만드는 변화
+   · 리서치 챕터: 좌측 라벨(sticky) + 우측 콘텐츠 스택
+   · 모든 수치 = 외부 참고 데이터 → .tag-ref 필수
+   · 자사 시험성적 확보 시 .fi-head .eyebrow{display:block;margin-bottom:14px}
+.fi-head h2{font-size:clamp(26px,3.4vw,40px);letter-spacing:-.035em}
+.fi-head .fi-lead{color:var(--muted);font-size:16px;margin-top:16px;line-height:1.75}
+#insight{padding:84px 0}
+
+/* =========================================================
+   3-B. FERMENTATION INSIGHT — 헤드 + 발효 흐름 다이어그램
+   ========================================================= */
+.fi-head--v2{max-width:none;margin-bottom:0}
+.fi-kicker{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:var(--sans);font-size:12.5px;font-weight:800;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--dark-2)
+}
+.fi-kicker::before{content:"";width:26px;height:2px;background:var(--red);flex:0 0 auto}
+.fi-head--v2 h2{
+  margin-top:18px;font-size:clamp(21px,2.25vw,30px);font-weight:800;
+  letter-spacing:-.032em;line-height:1.45;color:var(--dark-2)
+}
+.fi-head--v2 .fi-lead{margin-top:14px;font-size:15.5px;color:var(--muted);line-height:1.7}
+
+/* ---------- 흐름 다이어그램 ---------- */
+.fxflow{
+  --fx-line:rgba(29,32,64,.46);
+  margin-top:40px;padding:54px 40px 46px;
+  background:var(--parchment);border-radius:18px;
+  display:flex;flex-direction:column;align-items:center
+}
+.fxnode{
+  width:190px;padding:18px 16px 16px;text-align:center;
+  background:#fff;border:1.5px solid var(--dark-2);border-radius:14px;
+  display:flex;flex-direction:column;align-items:center;gap:3px
+}
+.fxnode b{
+  font-family:var(--sans);font-size:14px;font-weight:800;letter-spacing:.04em;
+  text-transform:uppercase;color:var(--dark-2);line-height:1.3
+}
+.fxnode span{font-size:12px;color:var(--muted);line-height:1.5}
+.fxnode--dark{
+  width:auto;min-width:322px;padding:22px 34px 20px;
+  background:var(--dark-2);border-color:var(--dark-2);border-radius:16px
+}
+.fxnode--dark b{font-size:19px;letter-spacing:.06em;color:#fff}
+.fxnode--dark span{color:rgba(255,255,255,.7);font-size:13px}
+.fxic{display:block;margin-bottom:5px;line-height:0}
+.fxic svg{width:20px;height:20px;fill:none;stroke:var(--dark-2);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.fxnode--dark .fxic svg{width:23px;height:23px;stroke:#fff}
+
+/* 세로 화살표 */
+.fxdrop{position:relative;width:1.5px;height:48px;background:var(--fx-line)}
+.fxdrop::after,.fxbus i::after{
+  content:"";position:absolute;left:50%;bottom:1px;width:7px;height:7px;
+  border-right:1.5px solid var(--fx-line);border-bottom:1.5px solid var(--fx-line);
+  transform:translate(-50%,0) rotate(45deg)
+}
+/* 분기 커넥터 — 가로선은 1번·3번 카드 중심을 정확히 잇습니다 */
+.fxbus{position:relative;width:100%;height:76px}
+.fxbus::before{
+  content:"";position:absolute;left:50%;top:0;width:1.5px;height:27px;
+  background:var(--fx-line);transform:translateX(-50%)
+}
+.fxbus::after{
+  content:"";position:absolute;top:26px;height:1.5px;background:var(--fx-line);
+  left:calc((100% - 40px) / 6);right:calc((100% - 40px) / 6)
+}
+.fxbus i{position:absolute;top:26px;height:50px;width:1.5px;background:var(--fx-line)}
+.fxbus i:nth-child(1){left:calc((100% - 40px) / 6)}
+.fxbus i:nth-child(2){left:50%;transform:translateX(-50%)}
+.fxbus i:nth-child(3){right:calc((100% - 40px) / 6)}
+
+/* 결과 카드 3열 */
+.fxcards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:100%}
+.fxcard{
+  background:#fff;border:1px solid var(--line-2);border-radius:16px;
+  padding:24px 24px 26px;box-shadow:0 10px 26px rgba(20,22,44,.05)
+}
+.fxcard-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.fxcard-hd em{font-style:normal;font-family:var(--en);font-size:16px;font-weight:400;letter-spacing:.06em;color:var(--red)}
+.fxbadge{
+  width:34px;height:34px;border-radius:50%;background:var(--parchment);
+  display:grid;place-items:center;line-height:0
+}
+.fxbadge svg{width:17px;height:17px;fill:none;stroke:var(--dark-2);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+/* 카드 위계: 번호 → 성분명 → 한글 핵심 → 변화 과정 → 연구 설명 */
+.fxcard h4{
+  font-size:13px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--dark-2);line-height:1.35
+}
+.fxsub{margin-top:5px;font-size:12.5px;color:var(--muted-2);line-height:1.5}
+.fxkey{
+  margin-top:15px;font-size:16.5px;font-weight:800;letter-spacing:-.028em;
+  color:var(--dark-2);line-height:1.52;min-height:3.04em
+}
+.fxchip{
+  margin-top:13px;padding:11px 13px;background:var(--parchment-2);border-radius:8px;
+  font-size:13px;font-weight:700;letter-spacing:.005em;color:var(--dark-2);line-height:1.5
+}
+.fxcap{margin-top:12px;font-size:13px;color:var(--muted);line-height:1.65}
+
+@media(max-width:960px){
+  .fxflow{padding:36px 20px 30px;margin-top:30px;border-radius:14px}
+  .fxnode--dark{min-width:0;width:100%;max-width:322px;padding:19px 22px 17px}
+  .fxnode--dark b{font-size:17px}
+  .fxbus{height:44px}
+  .fxbus::after,.fxbus i:nth-child(1),.fxbus i:nth-child(3){display:none}
+  .fxbus i:nth-child(2){top:0;height:44px}
+  .fxbus::before{display:none}
+  .fxcards{grid-template-columns:1fr;gap:14px}
+  .fxcard{padding:20px 20px 22px}
+  .fxcard-hd{margin-bottom:16px}
+  .fi-head--v2 h2{line-height:1.5}
+}
+
+/* ---------- RESEARCH 01 — 핵심만 읽히는 데이터 요약 ---------- */
+.r01{
+  display:grid;grid-template-columns:minmax(230px,280px) 1fr;align-items:stretch;
+  margin-top:76px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--ink)
+}
+.r01-side,.r01-main{min-width:0}
+.r01-side{background:var(--dark);padding:33px 28px;color:#fff}
+.r01-sticky{position:sticky;top:104px}
+.r01-side .rlab{
+  display:block;font-family:var(--en);font-size:12px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:#FF5260
+}
+.r01-side .ren{
+  font-family:var(--en);font-weight:300;font-size:clamp(28px,2.5vw,36px);
+  line-height:1.08;letter-spacing:-.02em;text-transform:uppercase;margin-top:16px;color:#fff
+}
+.r01-side .rkr{font-size:15px;font-weight:700;color:rgba(255,255,255,.72);margin-top:14px}
+.r01-side .sblk{margin-top:26px;padding-top:18px;border-top:1px solid rgba(255,255,255,.2)}
+.r01-side .sblk .sk{
+  display:block;font-size:12.5px;font-weight:800;
+  letter-spacing:-.01em;color:#FF8A94;margin-bottom:11px
+}
+.r01-side .sblk p{font-size:14.5px;color:rgba(255,255,255,.82);line-height:1.75}
+.r01-main{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;
+  align-content:start;padding:36px 38px 38px
+}
+.r01-h{grid-column:1/-1;font-size:clamp(27px,3vw,38px);font-weight:800;letter-spacing:-.045em;line-height:1.34}
+.r01-lead{
+  grid-column:1/-1;font-size:16.5px;color:#555763;line-height:1.8;
+  margin-top:-6px;max-width:760px
+}
+
+/* 구조 변화는 복잡한 분자 그림 대신 3단 흐름으로 표현 */
+.fig{
+  grid-column:1/-1;margin:12px 0 8px;padding:23px 25px 19px;
+  background:var(--parchment);border:0
+}
+.fig-head{display:flex;align-items:baseline;gap:14px;margin-bottom:16px}
+.fg-no{font-family:var(--en);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--red)}
+.fg-t{font-size:14px;font-weight:700;letter-spacing:-.015em;color:var(--ink)}
+.fig-visual{overflow:hidden;background:#F6F1E9;border:1px solid rgba(169,163,147,.42)}
+.fig-visual img{display:block;width:100%;height:auto;object-fit:cover}
+.fig-legend{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:12px 0 0;padding:0;border:0}
+.fig-legend div{
+  position:relative;display:grid;grid-template-columns:28px 1fr;row-gap:5px;
+  min-width:0;padding:16px 32px 16px 14px;background:#fff;border:1px solid var(--line-2)
+}
+.fig-legend div:not(:last-child)::after{
+  content:"→";position:absolute;right:-21px;top:50%;z-index:1;transform:translateY(-50%);
+  width:28px;height:28px;display:grid;place-items:center;background:var(--parchment);
+  color:var(--red);font-size:19px;font-weight:700
+}
+.fig-legend em{grid-row:1/3;font-style:normal;font-family:var(--en);font-size:12px;color:var(--red);letter-spacing:.06em}
+.fig-legend b{font-family:var(--sans);font-weight:800;font-size:16px;letter-spacing:-.02em;color:var(--ink)}
+.fig-legend span{font-size:13.5px;color:var(--muted);line-height:1.5}
+/* 두 개의 연구값을 같은 높이의 비교 카드로 배치 */
+.dpanel{
+  margin:0;padding:23px 21px 19px;border:1px solid var(--line);
+  border-top:2px solid var(--ink);background:#fff
+}
+.dp-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.dp-no{font-size:12.5px;font-weight:800;letter-spacing:-.01em;color:var(--red)}
+.dp-meta{
+  padding:5px 9px;border:1px dashed #A9A393;font-size:11px;font-weight:600;
+  letter-spacing:.01em;color:var(--muted);white-space:nowrap
+}
+.dp-t{font-size:20px;font-weight:800;letter-spacing:-.035em;line-height:1.45;margin-top:14px}
+.dp-read{
+  font-size:14.5px;color:#555763;line-height:1.7;margin-top:16px;
+  border-left:3px solid var(--red);padding:2px 0 2px 14px
+}
+.dp-read b{color:var(--ink);font-weight:800}
+
+/* ---------- 쉬운 설명용 그래픽 (숫자보다 그림 우선) ---------- */
+.dvis{margin-top:16px;padding:18px 16px 8px;background:var(--parchment);overflow:hidden}
+.dvis.sm{margin-top:16px;padding:16px 14px 6px;width:100%}
+.dsvg{width:100%;height:auto;display:block}
+.dsvg .pnl{fill:#fff}
+.dsvg .bl{fill:#D9CFBC}
+.dsvg .bl.hi{fill:var(--red);opacity:.8}
+.dsvg .parw{fill:none;stroke:var(--muted-2);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.dsvg .plab{fill:var(--ink);font-size:12.5px;font-weight:800;font-family:var(--sans);letter-spacing:-.02em}
+.dsvg .pcap{fill:var(--muted-2);font-size:9.5px;font-family:var(--sans)}
+.dsvg .dot2{fill:#C3B69C}
+.dsvg .dot2.hi{fill:var(--red);opacity:.85}
+.dsvg .rlab2{fill:var(--ink);font-size:12.5px;font-weight:800;font-family:var(--sans);letter-spacing:-.02em}
+.dsvg .rlab2.hi{fill:var(--red)}
+.dsvg .sep{stroke:var(--line);stroke-width:1}
+.dsvg .big{fill:var(--ink);font-size:21px;font-weight:800;font-family:var(--sans);letter-spacing:-.03em}
+.dsvg .base{stroke:var(--line);stroke-width:1}
+.dsvg .bar2{fill:#D9CFBC}
+.dsvg .bar2.hi{fill:var(--red)}
+.dsvg .blab{fill:var(--ink);font-size:13px;font-weight:800;font-family:var(--sans);letter-spacing:-.02em}
+.dsvg .blab.hi{fill:var(--red)}
+.dsvg .brk2{fill:none;stroke:var(--muted-2);stroke-width:1}
+.dsvg .big2{fill:var(--ink);font-size:20px;font-weight:800;font-family:var(--sans);letter-spacing:-.03em}
+/* ---------- 사진형 데이터 비주얼 (변화 01 · 02) ---------- */
+.pseq{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pseq figure{margin:0;min-width:0}
+.pseq img{display:block;width:100%;aspect-ratio:5/8;object-fit:cover;border-radius:4px;background:var(--parchment-2)}
+.pseq figcaption{
+  margin-top:8px;text-align:center;font-size:11.5px;font-weight:500;
+  color:var(--muted-2);line-height:1.5;letter-spacing:-.01em
+}
+.pseq figure.hi figcaption{color:var(--red);font-weight:800}
+.dvis .dimg{display:block;width:100%;aspect-ratio:12/7;object-fit:cover;border-radius:4px;background:var(--parchment-2)}
+.pseq-cap{margin-top:10px;font-size:9.5px;color:var(--muted-2);line-height:1.5}
+@media(max-width:560px){
+  .pseq{gap:6px}
+  .pseq figcaption{font-size:11px}
+}
+
+.dfoot{font-size:11.5px;color:var(--muted-2);line-height:1.6;margin-top:12px;padding-top:10px;border-top:1px solid var(--line-2)}
+.ocard .ocap2{font-size:14.5px;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin-top:13px}
+.ocard .ocap2:last-of-type{margin-top:14px;font-size:12.5px;font-weight:500;color:var(--muted-2)}
+.ocard .dfoot{width:100%;margin-top:auto;padding-top:14px}
+.ofr-sub{text-align:center;font-size:15.5px;color:var(--muted);margin:-26px 0 34px}
+/* 한글로 바뀐 오버뷰 3칸 */
+.fi-3.kr .f3 b{font-family:var(--sans);font-weight:800;font-size:15.5px;letter-spacing:-.02em;text-transform:none}
+.fi-3.kr .f3 span{font-family:var(--sans);font-size:13px;letter-spacing:-.01em;text-transform:none;color:var(--muted);line-height:1.6}
+/* 이소플라본 라벨 한글화 */
+
+
+/* 이소플라본 3단 — 제공 분자 이미지 시퀀스 */
+.isoflow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;width:100%;margin-top:22px}
+.isostep{position:relative;margin:0;min-width:0}
+.isopic{position:relative;background:#fff;border:1px solid var(--line-2)}
+.isopic img{display:block;width:100%;height:auto}
+.isostep:not(:last-child) .isopic::after{
+  content:"→";position:absolute;right:-19px;top:50%;z-index:2;transform:translateY(-50%);
+  width:24px;height:24px;display:grid;place-items:center;background:#fff;
+  color:var(--red);font-size:17px;font-weight:700;line-height:1
+}
+.isostep figcaption{margin-top:11px;text-align:center}
+.isostep b{display:block;font-size:13.5px;font-weight:800;letter-spacing:-.025em;color:var(--ink);line-height:1.4}
+.isostep span{display:block;font-size:11.5px;color:var(--muted-2);margin-top:4px}
+.isostep.hi b{color:var(--red)}
+.isostep.hi .isopic{border-color:rgba(230,0,18,.28)}
+
+/* OTHER FERMENTATION RESEARCH — R02+R03 압축 2열 (보조 연구 영역) */
+.ofr{padding:82px 0}
+.ofr-title{text-align:center;font-family:var(--en);font-weight:300;font-size:clamp(19px,2.2vw,25px);letter-spacing:.2em;text-transform:uppercase;color:var(--ink);margin-bottom:38px}
+.ofr-grid{display:grid;grid-template-columns:1fr 1fr;gap:21px;align-items:stretch}
+.ocard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px 28px 25px;display:flex;flex-direction:column;align-items:flex-start}
+.ocard .ohead{display:flex;justify-content:space-between;align-items:center;width:100%;gap:14px}
+.ocard .ohead .tag-ref{margin-top:0}
+.ocard .rlab{font-family:var(--en);font-size:11.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+.ocard .oen{font-family:var(--en);font-weight:300;font-size:clamp(21px,2vw,26px);letter-spacing:0;text-transform:uppercase;margin-top:10px}
+.ocard .okr{font-size:16px;font-weight:800;letter-spacing:-.02em;margin-top:6px}
+.ocard .odesc{font-size:14.5px;color:var(--muted);line-height:1.7;margin-top:10px}
+.ocard-visual{width:100%;overflow:hidden;margin-top:16px;background:#fff;border:1px solid var(--line-2)}
+.ocard-visual img{display:block;width:100%;height:auto;object-fit:cover}
+.ocard .tag-ref{margin-top:18px}
+.ocard .fi-isonote{text-align:center;font-size:14px;color:var(--muted);margin-top:26px}
+
+/* 소스 / 각주 */
+.slab{display:block;font-size:11.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-2)}
+/* Overview 그래픽 (인트로 내 압축 플로우) */
+.fi-flowv{max-width:860px;margin:0 auto;display:flex;flex-direction:column;align-items:center}
+.fi-arr{width:20px;height:20px;stroke:var(--muted-2);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin:10px 0}
+.fn{background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px 34px;text-align:center;font-family:var(--en);font-weight:400;font-size:16px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+.fn span{display:block;font-family:var(--sans);font-size:13px;font-weight:500;color:var(--muted-2);margin-top:3px;text-transform:none;letter-spacing:0}
+.fn.dark{background:var(--dark);border-color:var(--dark);color:#fff}
+.fn.dark span{color:rgba(255,255,255,.62)}
+.fi-3{display:grid;grid-template-columns:repeat(3,1fr);gap:13px;width:100%}
+.f3{background:#fff;border:1px solid var(--line-2);border-radius:10px;padding:17px 13px;text-align:center}
+.f3 b{display:block;font-family:var(--en);font-weight:400;font-size:14.5px;letter-spacing:.06em;text-transform:uppercase}
+.f3 i{display:block;font-style:normal;color:var(--red);margin:6px 0 4px;font-size:13px}
+.f3 span{display:block;font-family:var(--en);font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);line-height:1.5}
+
+/* 제품 영역 전환 강조 */
+.appsec{padding:126px 0 96px}
+.lusec{padding:96px 0 86px}
+.lusec .sec-head{margin-bottom:46px}
+.secsub{color:var(--muted);font-size:16px;margin-top:12px}
+.eyebrow.ib{display:block;margin-bottom:10px}
+
+/* 반응형 — INSIGHT */
+@media(max-width:960px){
+  .strain-spot{grid-template-columns:1fr}
+  .strain-copy{padding:32px 0 28px;border-right:0}
+  .strain-copy>p{max-width:620px}
+  .strain-media{padding:0 0 28px}
+  .strain-media img,.strain-media video{position:static;top:auto;left:auto;width:100%;height:auto;aspect-ratio:1280/628}
+  #insight,.ofr{padding:56px 0}
+  .fi-head{margin-bottom:34px}
+  .r01{grid-template-columns:1fr;margin-top:56px}
+  .r01-side{padding:27px}
+  .r01-sticky{position:static}
+  .r01-side .ren br{display:none}
+  .r01-main{padding:30px 26px 32px}
+  .dvis{padding:14px 12px 6px}
+  .ofr-sub{font-size:14.5px;margin:-20px 0 26px}
+  .dsvg .plab{font-size:13.5px}
+  .dsvg .pcap{font-size:10.5px}
+  .dsvg .rlab2{font-size:13.5px}
+  .dsvg .big{font-size:23px}
+  .dsvg .blab{font-size:14px}
+  .dsvg .big2{font-size:22px}
+
+  .fi-card{padding:26px 22px}
+  .fi-data .dgrid{grid-template-columns:1fr;gap:14px}
+  .fi-3{grid-template-columns:1fr}
+  .fn{padding:12px 28px}
+  .fi-duo{grid-template-columns:1fr;gap:18px}
+  .fi-duo .fi-card{margin-top:0}
+  .ofr-grid{grid-template-columns:1fr}
+  .ocard{padding:23px 20px}
+  .appsec{padding:96px 0 72px}
+  .lusec{padding:72px 0 64px}
+}
+@media(max-width:560px){
+  .strain-spot{margin-top:42px}
+  .strain-copy{padding:28px 0 24px}
+  .strain-copy h3{font-size:28px}
+  .strain-meta{grid-template-columns:1fr}
+  .strain-meta div{padding:13px 0;border-left:0;border-top:1px solid var(--line-2)}
+  .strain-meta div:first-child{border-top:0}
+  .strain-media{padding-bottom:24px}
+    .r01-side{padding:26px 22px}
+  .r01-side .ren{font-size:30px}
+  .r01-side .sblk{margin-top:24px;padding-top:16px}
+  .r01-main{grid-template-columns:1fr;gap:16px;padding:28px 20px 30px}
+  .r01-h{font-size:26px}
+  .r01-h br{display:none}
+  .r01-lead{font-size:15.5px;margin-top:-4px}
+  .fig{padding:22px 18px 20px;margin:10px 0 6px}
+  .fig-legend{grid-template-columns:1fr;gap:12px}
+  .fig-legend div{padding:16px}
+  .fig-legend div:not(:last-child)::after{
+    content:"↓";right:auto;left:50%;top:auto;bottom:-21px;transform:translateX(-50%)
+  }
+  .dpanel{padding:24px 20px 20px}
+  .dp-t{font-size:19px}
+    .isoflow{grid-template-columns:1fr;gap:40px;max-width:230px;margin-left:auto;margin-right:auto}
+  .isostep:not(:last-child) .isopic::after{display:none}
+  .isostep:not(:last-child)::after{
+    content:"↓";position:absolute;left:50%;bottom:-32px;z-index:2;transform:translateX(-50%);
+    width:24px;height:24px;display:grid;place-items:center;background:#fff;
+    color:var(--red);font-size:17px;font-weight:700;line-height:1
+  }
+  .fi-steps{flex-direction:column;gap:4px}
+  .fi-steps .sarw svg{transform:rotate(90deg)}
+  .fi-steps .mol{width:96px;height:96px}
+        }
+
+/* =========================================================
+   4. 적용 가능 제품
+   ========================================================= */
+.appgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.app{border:1px solid var(--line-2);border-radius:12px;overflow:hidden;background:#fff;transition:.22s;display:flex;flex-direction:column}
+.app:hover{box-shadow:0 16px 34px rgba(20,22,44,.08);transform:translateY(-3px)}
+.app .pic{aspect-ratio:4/3;background:var(--parchment-2)}
+.app .pic .ph{border:0;border-radius:0;min-height:100%}
+.app .pic img{width:100%;height:100%;object-fit:cover}
+.app .txt{padding:20px 22px 24px;flex:1}
+.app .num{display:block;font-family:var(--en);font-weight:400;font-size:13px;color:var(--red);letter-spacing:.06em;margin-bottom:7px}
+.app h3{font-size:16px;font-weight:800;letter-spacing:-.025em;margin-bottom:7px}
+.app p{font-size:14.5px;color:var(--muted);line-height:1.6}
+
+/* =========================================================
+   5. 제품 라인업 (A. POWDER / B. LIQUID)
+   ========================================================= */
+.lineup{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.lncard{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:32px 32px 30px;display:grid;grid-template-columns:1fr 156px;
+  grid-template-rows:auto 1fr;column-gap:26px;row-gap:22px;align-items:start;
+}
+.lncard .hd .no{
+  font-family:var(--en);font-weight:400;font-size:24px;letter-spacing:.02em;
+  text-transform:uppercase;color:var(--ink);
+}
+.lncard .hd .no i{font-style:normal;color:var(--red);margin-right:6px}
+.lncard .ln-form{
+  display:inline-flex;padding:5px 8px;margin-bottom:12px;background:var(--ink);color:#fff;
+  font-family:var(--en);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase
+}
+.lncard .hd p{margin-top:0}
+.lncard .hd .ln-choice{font-size:14.5px;font-weight:700;color:var(--ink);margin-top:12px;line-height:1.6;letter-spacing:-.015em}
+.lncard .hd .ln-apps{font-size:12.5px;color:var(--muted);margin-top:9px;padding-top:9px;border-top:1px solid var(--line-2);line-height:1.55}
+.lncard .art{grid-column:2;grid-row:1/3;align-self:stretch;height:100%}
+.lncard .art .ph{min-height:190px}
+.lncard .art img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+.lnspec{grid-column:1;grid-row:2;width:100%;border-collapse:collapse;font-size:14.5px}
+.lnspec tr{border-top:1px solid var(--line-2)}
+.lnspec tr:last-child{border-bottom:1px solid var(--line-2)}
+.lnspec th{
+  width:84px;text-align:left;padding:12px 14px;background:var(--parchment);
+  font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.02em;
+}
+.lnspec td{padding:12px 16px;color:var(--ink);font-weight:600}
+.lnspec tr:first-child td{font-family:var(--en);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
+
+/* =========================================================
+   6. 기본 정보 + 제공 자료
+   ========================================================= */
+.infosplit{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:start}
+.blockhead{font-size:19px;font-weight:800;letter-spacing:-.025em;margin-bottom:18px}
+.basictbl{width:100%;border-collapse:collapse;font-size:14.5px;border-top:2px solid var(--ink)}
+.basictbl th{
+  width:132px;text-align:left;padding:13px 16px;background:var(--parchment);
+  font-size:13px;font-weight:700;color:var(--ink);border-bottom:1px solid var(--line);
+}
+.basictbl td{padding:13px 16px;color:var(--muted);border-bottom:1px solid var(--line)}
+.docgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.doc{
+  border:1px solid var(--line-2);border-radius:12px;padding:26px 20px;text-align:center;
+  transition:.22s;background:#fff;
+}
+.doc:hover{border-color:var(--ink);transform:translateY(-3px)}
+.doc .ic{margin:0 auto 14px;color:var(--ink)}
+.doc b{display:block;font-size:15px;font-weight:700;letter-spacing:-.01em}
+.doc span{display:block;font-size:13.5px;color:var(--muted-2);margin-top:4px}
+.docnote{font-size:13.5px;color:var(--muted-2);margin-top:18px}
+.product-info-sec{padding:84px 0 86px}
+
+/* =========================================================
+   7. CTA
+   ========================================================= */
+.ctaband .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.product-cta{padding:80px 0}
+.btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.45)}
+.btn.ghost:hover{background:#fff;color:var(--dark);border-color:#fff}
+
+/* =========================================================
+   반응형
+   ========================================================= */
+@media(max-width:1100px){
+  .lncard{grid-template-columns:1fr 140px;padding:26px}
+}
+@media(max-width:960px){
+  .sbhero{padding:96px 0 0}
+  .sbhero .inner{grid-template-columns:1fr;gap:0;min-height:0}
+  .sbhero .copy{padding:30px 0 34px}
+  .sbhero .visual{margin-right:-22px}
+  .sbhero .visual .ph,.sbhero .visual img{min-height:340px}
+  .specbar{padding:40px 0 60px}
+  .specbar .inner{grid-template-columns:1fr 1fr;gap:0}
+  .specbar .cell{padding:22px 0 22px 20px;border-left:1px solid var(--line);border-top:1px solid var(--line-2)}
+  .specbar .cell:nth-child(odd){padding-left:0;border-left:0}
+  .specbar .cell:nth-child(-n+2){border-top:0;padding-top:24px}
+  .specbar .v{font-size:16.5px;margin-top:12px}
+  .featgrid,.appgrid{grid-template-columns:1fr 1fr}
+  .lineup{grid-template-columns:1fr}
+  .infosplit{grid-template-columns:1fr;gap:44px}
+  .product-info-sec{padding:64px 0 70px}
+  .product-cta{padding:68px 0}
+}
+@media(max-width:560px){
+  .featgrid,.appgrid,.docgrid{grid-template-columns:1fr}
+  .lncard{grid-template-columns:1fr;grid-template-rows:auto auto auto}
+  .lncard .art{grid-column:1;grid-row:2}
+  .lncard .art .ph{min-height:200px}
+  .lnspec{grid-row:3}
+  .basictbl th{width:104px;font-size:12.5px}
+}
