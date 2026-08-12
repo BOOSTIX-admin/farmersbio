@@ -376,24 +376,17 @@
 }
 .r01-top,.r01-main{min-width:0}
 .r01-top{
-  display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:38px;align-items:center;
-  background:var(--dark);padding:30px 38px 32px;color:#fff
+  display:flex;align-items:baseline;gap:24px;flex-wrap:wrap;
+  background:var(--dark);padding:21px 38px 23px;color:#fff
 }
 .r01-top .rlab{
-  display:block;font-family:var(--en);font-size:12px;font-weight:500;
-  letter-spacing:.22em;text-transform:uppercase;color:#FF5260
+  font-family:var(--en);font-size:12px;font-weight:500;
+  letter-spacing:.22em;text-transform:uppercase;color:#FF5260;white-space:nowrap
 }
 .r01-top .ren{
-  font-family:var(--en);font-weight:300;font-size:clamp(26px,2.6vw,34px);
-  line-height:1.12;letter-spacing:-.02em;text-transform:uppercase;margin-top:13px;color:#fff
+  font-family:var(--en);font-weight:300;font-size:clamp(22px,2.2vw,29px);
+  line-height:1.14;letter-spacing:-.01em;text-transform:uppercase;color:#fff
 }
-.r01-top .rkr{font-size:15px;font-weight:700;color:rgba(255,255,255,.72);margin-top:11px}
-.r01-top .sblk{padding-left:38px;border-left:1px solid rgba(255,255,255,.2)}
-.r01-top .sblk .sk{
-  display:block;font-size:12.5px;font-weight:800;
-  letter-spacing:-.01em;color:#FF8A94;margin-bottom:9px
-}
-.r01-top .sblk p{font-size:14.5px;color:rgba(255,255,255,.82);line-height:1.75}
 .r01-main{
   display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;
   align-content:start;padding:36px 38px 40px
@@ -559,8 +552,7 @@
   #insight,.ofr{padding:56px 0}
   .fi-head{margin-bottom:34px}
   .r01{margin-top:56px}
-  .r01-top{grid-template-columns:1fr;gap:22px;padding:26px 26px 28px}
-  .r01-top .sblk{padding-left:0;padding-top:20px;border-left:0;border-top:1px solid rgba(255,255,255,.2)}
+  .r01-top{gap:18px;padding:19px 26px 21px}
   .r01-main{padding:30px 26px 32px}
   .dvis{padding:14px 12px 6px}
   .ofr-sub{font-size:14.5px;margin:-20px 0 26px}
@@ -590,9 +582,8 @@
   .strain-meta div{padding:13px 0;border-left:0;border-top:1px solid var(--line-2)}
   .strain-meta div:first-child{border-top:0}
   .strain-media{padding-bottom:24px}
-  .r01-top{padding:24px 22px 26px}
-  .r01-top .ren{font-size:27px}
-  .r01-top .sblk{padding-top:17px}
+  .r01-top{gap:5px 14px;padding:17px 22px 19px}
+  .r01-top .ren{font-size:23px}
   .r01-main{grid-template-columns:1fr;gap:16px;padding:28px 20px 30px}
   .r01-h{font-size:26px}
   .r01-h br{display:none}
