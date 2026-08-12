@@ -543,8 +543,8 @@
 
 /* 제품 영역 전환 강조 */
 .appsec{padding:126px 0 96px}
-.lusec{padding:96px 0 86px}
-.lusec .sec-head{margin-bottom:46px}
+.pfsec{padding:96px 0 86px}
+.pfsec .sec-head{margin-bottom:46px}
 .secsub{color:var(--muted);font-size:16px;margin-top:12px}
 .eyebrow.ib{display:block;margin-bottom:10px}
 
@@ -580,7 +580,7 @@
   .ofr-grid{grid-template-columns:1fr}
   .ocard{padding:23px 20px}
   .appsec{padding:96px 0 72px}
-  .lusec{padding:72px 0 64px}
+  .pfsec{padding:72px 0 64px}
 }
 @media(max-width:560px){
   .strain-spot{margin-top:42px}
@@ -632,38 +632,41 @@
 .app p{font-size:14.5px;color:var(--muted);line-height:1.6}
 
 /* =========================================================
-   5. 제품 라인업 (A. POWDER / B. LIQUID)
+   5. PRODUCT PORTFOLIO — 실제 제조 경험
    ========================================================= */
-.lineup{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-.lncard{
-  background:#fff;border:1px solid var(--line);border-radius:14px;
-  padding:32px 32px 30px;display:grid;grid-template-columns:1fr 156px;
-  grid-template-rows:auto 1fr;column-gap:26px;row-gap:22px;align-items:start;
+.pfgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+
+.pfcard{
+  background:#fff;border:1px solid var(--line-2);border-radius:12px;
+  overflow:hidden;display:flex;flex-direction:column;transition:.22s;
 }
-.lncard .hd .no{
-  font-family:var(--en);font-weight:400;font-size:24px;letter-spacing:.02em;
-  text-transform:uppercase;color:var(--ink);
+.pfcard:hover{box-shadow:0 16px 34px rgba(20,22,44,.08);transform:translateY(-3px)}
+
+.pfpic{aspect-ratio:1/1;background:var(--parchment-2);overflow:hidden}
+.pfpic img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.pfcard:hover .pfpic img{transform:scale(1.03)}
+
+.pftxt{padding:18px 20px 22px;flex:1;display:flex;flex-direction:column}
+.pfcat{
+  display:block;font-family:var(--en);font-size:10.5px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted-2);
 }
-.lncard .hd .no i{font-style:normal;color:var(--red);margin-right:6px}
-.lncard .ln-form{
-  display:inline-flex;padding:5px 8px;margin-bottom:12px;background:var(--ink);color:#fff;
-  font-family:var(--en);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase
+.pfcard h3{font-size:16px;font-weight:800;letter-spacing:-.025em;color:var(--ink);margin-top:7px}
+.pfcard p{font-size:13.5px;line-height:1.6;color:var(--muted);margin-top:6px;min-height:2.6em}
+
+/* AVAILABLE FORM — 보조 정보 스트립 */
+.pfform{margin-top:32px;padding-top:22px;border-top:1px solid var(--line);text-align:center}
+.pfform-hd{display:flex;align-items:center;justify-content:center;gap:9px;flex-wrap:wrap}
+.pfform-lab{
+  font-family:var(--en);font-size:10.5px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted-2);margin-right:3px;
 }
-.lncard .hd p{margin-top:0}
-.lncard .hd .ln-choice{font-size:14.5px;font-weight:700;color:var(--ink);margin-top:12px;line-height:1.6;letter-spacing:-.015em}
-.lncard .hd .ln-apps{font-size:12.5px;color:var(--muted);margin-top:9px;padding-top:9px;border-top:1px solid var(--line-2);line-height:1.55}
-.lncard .art{grid-column:2;grid-row:1/3;align-self:stretch;height:100%}
-.lncard .art .ph{min-height:190px}
-.lncard .art img{width:100%;height:100%;object-fit:cover;border-radius:12px}
-.lnspec{grid-column:1;grid-row:2;width:100%;border-collapse:collapse;font-size:14.5px}
-.lnspec tr{border-top:1px solid var(--line-2)}
-.lnspec tr:last-child{border-bottom:1px solid var(--line-2)}
-.lnspec th{
-  width:84px;text-align:left;padding:12px 14px;background:var(--parchment);
-  font-size:13px;font-weight:700;color:var(--muted);letter-spacing:.02em;
+.pfpill{
+  display:inline-flex;align-items:center;padding:5px 12px;background:#fff;
+  border:1px solid var(--line);border-radius:100px;font-family:var(--en);
+  font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);
 }
-.lnspec td{padding:12px 16px;color:var(--ink);font-weight:600}
-.lnspec tr:first-child td{font-family:var(--en);font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
+.pfform-note{margin-top:12px;font-size:13px;color:var(--muted);line-height:1.6}
 
 /* =========================================================
    6. 기본 정보 + 제공 자료
@@ -700,7 +703,7 @@
    반응형
    ========================================================= */
 @media(max-width:1100px){
-  .lncard{grid-template-columns:1fr 140px;padding:26px}
+  .pfgrid{gap:20px}
 }
 @media(max-width:960px){
   .sbhero{padding:96px 0 0}
@@ -715,16 +718,18 @@
   .specbar .cell:nth-child(-n+2){border-top:0;padding-top:24px}
   .specbar .v{font-size:16.5px;margin-top:12px}
   .featgrid,.appgrid{grid-template-columns:1fr 1fr}
-  .lineup{grid-template-columns:1fr}
+  .pfgrid{grid-template-columns:repeat(2,1fr);gap:20px}
   .infosplit{grid-template-columns:1fr;gap:44px}
   .product-info-sec{padding:64px 0 70px}
   .product-cta{padding:68px 0}
 }
 @media(max-width:560px){
   .featgrid,.appgrid,.docgrid{grid-template-columns:1fr}
-  .lncard{grid-template-columns:1fr;grid-template-rows:auto auto auto}
-  .lncard .art{grid-column:1;grid-row:2}
-  .lncard .art .ph{min-height:200px}
-  .lnspec{grid-row:3}
+  .pfgrid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .pftxt{padding:13px 13px 16px}
+  .pfcat{font-size:9.5px;letter-spacing:.14em}
+  .pfcard h3{font-size:14px;margin-top:6px}
+  .pfcard p{font-size:12.5px;margin-top:5px;min-height:0}
+  .pfform{margin-top:26px}
   .basictbl th{width:104px;font-size:12.5px}
 }
