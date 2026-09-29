@@ -906,6 +906,8 @@
               const v = document.createElement('video');
               v.className = 'igplayer'; v.src = a.dataset.video;
               v.muted = true; v.loop = true; v.playsInline = true; v.autoplay = true;
+              const im = a.querySelector('img'); if(im) v.poster = im.currentSrc || im.src;
+              v.addEventListener('error', () => { v.remove(); a.classList.remove('playing'); });
               a.classList.add('playing');
               a.appendChild(v);
             });
